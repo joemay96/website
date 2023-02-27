@@ -4,11 +4,10 @@ export interface Props {
 	title: string;
 	text: string;
 }
-
 const { title, text } = Astro.props;
 ---
 
-<div class="hero parallax hero-bg min-h-screen">
+<div id="hero" class="hero parallax hero-bg-1 min-h-screen">
     <div class="hero-overlay bg-opacity-60"></div>
     <div class="hero-content text-center text-neutral-content">
       <div class="max-w-md">
@@ -32,11 +31,27 @@ const { title, text } = Astro.props;
       </svg>      
     </button>
 </div>
-<style>
-.hero-bg {
-    background-image: url('/images/bg2.jpg');
+<style is:global>
+.hero-bg-1 {
+    background-image: url('/images/hero-bg/bg1.jpg');
 		background-color: hsl(var(--b1));
+    animation: fadeImage 2s once;
+}
 
+.hero-bg-2 {
+    background-image: url('/images/hero-bg/bg2.jpg');
+		background-color: hsl(var(--b1));
+    animation: fadeImage 2s once;
+}
+.hero-bg-3 {
+    background-image: url('/images/hero-bg/bg3.jpg');
+		background-color: hsl(var(--b1));
+    animation: fadeImage 2s once;
+}
+.hero-bg-4 {
+    background-image: url('/images/hero-bg/bg4.jpg');
+		background-color: hsl(var(--b1));
+    animation: fadeImage 2s once;
 }
 
 .hero-arrow {
@@ -55,12 +70,14 @@ const { title, text } = Astro.props;
   position: absolute;
   top: 50vw - 0.75rem;
   left: 1rem;
+  padding: 0 0.5rem;
 }
 
 .btn-hero-right {
   position: absolute;
   top: 50vw - 0.75rem;
   right: 1rem;
+  padding: 0 0.5rem;
 }
 
 .btn-hero-left:hover {
@@ -94,7 +111,7 @@ const { title, text } = Astro.props;
     left: 1rem;
   }
   45% {
-    left: 0.5rem;
+    left: 0.7rem;
   }
   90% {
     left: 1rem;
@@ -106,11 +123,16 @@ const { title, text } = Astro.props;
     right: 1rem;
   }
   45% {
-    right: 0.5rem;
+    right: 0.7rem;
   }
   90% {
     right: 1rem;
   }
+}
+
+@keyframes fadeImages {
+  0% { opacity: 0 }
+  100% { opacity: 100 }
 }
 
 .parallax {
@@ -120,3 +142,33 @@ const { title, text } = Astro.props;
   background-size: cover; */
 }
 </style>
+
+<script type="text/javascript">
+  // const bgImages = ["/images/hero-bg/bg1.jpg", "/images/hero-bg/bg2.jpg", "/images/hero-bg/bg3.jpg", "/images/hero-bg/bg4.jpg"];
+  const bgImages = ["hero-bg-1", "hero-bg-2", "hero-bg-3", "hero-bg-4"];
+
+  let slideNumber = 0;
+  const btns = document.querySelectorAll("button");
+  let heroBg = document.getElementById("hero");
+
+  const changeSlideNumber = (add) => {
+    slideNumber = (slideNumber + add) % bgImages.length;
+    if(slideNumber < 0) {
+      slideNumber += bgImages.length;
+    }
+  }
+
+  // left Btn
+  btns[0].addEventListener("click", () => {
+    let oldSlideNumber = slideNumber;
+    changeSlideNumber(-1);
+    // TODO: muss mit dem austausch der Bilder irgendwie besser gehen! 
+    heroBg.classList.replace(bgImages[oldSlideNumber], bgImages[slideNumber])
+  });
+  //right Btn
+  btns[1].addEventListener("click", () => {
+    let oldSlideNumber = slideNumber;
+    changeSlideNumber(+1);
+    heroBg.classList.replace(bgImages[oldSlideNumber], bgImages[slideNumber])
+  });
+</script>
