@@ -1,5 +1,5 @@
 ---
-// import { Image, Picture } from '@astrojs/image/components';
+import HeroCard from "./HeroCard.astro"
 export interface Props {
 	title: string;
 	text: string;
@@ -12,8 +12,9 @@ const { title, text } = Astro.props;
     <div class="hero-overlay bg-opacity-40"></div>
     <div class="hero-content text-center text-neutral-content">
       <div class="max-w-md">
-        <h1 class="mb-5 text-5xl font-bold">{title}</h1>
-        <p class="mb-5">{text}</p>
+        <HeroCard title={title} text={text} btn_text="Browse projects"/>
+        <!-- <h1 class="mb-5 text-5xl font-bold">{title}</h1>
+        <p class="mb-5">{text}</p> -->
         <!-- <button class="btn btn-primary">Get Started</button> -->
       </div>
     </div>
@@ -23,7 +24,7 @@ const { title, text } = Astro.props;
 </div>
 <style>
 .hero-bg {
-    background-image: url('/images/bg1.jpg');
+    /* background-image: url('/images/bg1.jpg'); */
 		background-color: hsl(var(--b1));
 
 }
