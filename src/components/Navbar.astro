@@ -1,11 +1,13 @@
 ---
-import { Image, Picture } from '@astrojs/image/components';
+import { Image } from '@astrojs/image/components';
 ---
 
 <div class="navbar bg-transparent">
-  <div class="flex-1">
-    <a class="btn btn-ghost normal-case text-xl">Joemay's Website</a>
-  </div>
+  <span class="flex-1">
+    <a href="/" class="btn btn-ghost normal-case text-xl">
+      <Image src={import("../../public/logo_dark.svg")} alt="Avatar" width={44} class=""/>
+    </a>
+  </span>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-4">
       <li><a href="https://www.linkedin.com/in/josef-mayer-91491a21b/" target="_blank" class="text-white">
