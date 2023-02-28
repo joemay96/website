@@ -39,9 +39,9 @@ const { title } = Astro.props;
 
 <!-- Script for getting chosen theme -->
 <script is:inline>
-	const theme = (() => {
-		if(typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-			return localStorage.getItem("theme");
+	const mode = (() => {
+		if(typeof localStorage !== "undefined" && localStorage.getItem("mode")) {
+			return localStorage.getItem("mode");
 		}
 		if(window.matchMedia("(prefers-color-scheme: dark").matches) {
 			return "dark";
@@ -49,10 +49,13 @@ const { title } = Astro.props;
 		return "light";
 	})();
 
-	if(theme === "light") {
+	if(mode === "light") {
 		document.documentElement.classList.remove("dark");
+		document.documentElement.setAttribute("data-theme", "retro");
 	} else {
 		document.documentElement.classList.add("dark");
+		document.documentElement.setAttribute("data-theme", "forest");
 	}
-	window.localStorage.setItem("theme", theme)
+	window.localStorage.setItem("mode", mode)
+	window.localStorage.setItem("theme", mode === "light" ? "retro" : "forest");
 </script>

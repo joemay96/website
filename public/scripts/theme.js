@@ -1,24 +1,41 @@
 const getTheme = () => {
-    return localStorage.getItem("theme") ?? "light";
-}
+	return localStorage.getItem("theme") ?? "retro";
+};
 
 const setTheme = (newTheme) => {
-    return localStorage.setItem("theme", newTheme);
-}
+	return localStorage.setItem("theme", newTheme);
+};
+
+const getMode = () => {
+	return localStorage.getItem("mode") ?? "light";
+};
+
+const setMode = (mode) => {
+	return localStorage.setItem("mode", mode);
+};
 
 const lightBtn = document.getElementById("light");
 const darkBtn = document.getElementById("dark");
 
 function changeTheme() {
-    const theme = getTheme();
-    console.log(theme)
-    setTheme(theme === "light" ? "dark" : "light");
-    if(theme === "dark") {
-        darkBtn.style.visibility = "block";
-        lightBtn.style.visibility = "none";
-    }
-    if(theme === "light") {
-        darkBtn.style.visibility = "none";
-        lightBtn.style.visibility = "block";
-    }
+	// change dark || light mode
+	const mode = getMode();
+	const toggledMode = mode === "light" ? "dark" : "light";
+	setMode(toggledMode);
+	// change theme
+	if (toggledMode === "dark") {
+		setTheme("forest");
+	} else {
+		setTheme("retro");
+	}
+	document.documentElement.setAttribute("data-theme", getTheme());
+	// change button
+	if (mode === "dark") {
+		darkBtn.style.visibility = "block";
+		lightBtn.style.visibility = "none";
+	}
+	if (mode === "light") {
+		darkBtn.style.visibility = "none";
+		lightBtn.style.visibility = "block";
+	}
 }
