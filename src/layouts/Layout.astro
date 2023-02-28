@@ -51,11 +51,11 @@ const { title } = Astro.props;
 
 	if(mode === "light") {
 		document.documentElement.classList.remove("dark");
-		document.documentElement.setAttribute("data-theme", "retro");
+		document.documentElement.setAttribute("data-theme", "emerald");
 	} else {
 		document.documentElement.classList.add("dark");
-		document.documentElement.setAttribute("data-theme", "forest");
+		document.documentElement.setAttribute("data-theme", "halloween");
 	}
 	window.localStorage.setItem("mode", mode)
-	window.localStorage.setItem("theme", mode === "light" ? "retro" : "forest");
+	window.localStorage.setItem("theme", mode === "light" ? "emerald" : "halloween");
 </script>

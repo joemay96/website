@@ -1,5 +1,5 @@
 const getTheme = () => {
-	return localStorage.getItem("theme") ?? "retro";
+	return localStorage.getItem("theme") ?? "emerald";
 };
 
 const setTheme = (newTheme) => {
@@ -24,9 +24,9 @@ function changeTheme() {
 	setMode(toggledMode);
 	// change theme
 	if (toggledMode === "dark") {
-		setTheme("forest");
+		setTheme("halloween");
 	} else {
-		setTheme("retro");
+		setTheme("emerald");
 	}
 	document.documentElement.setAttribute("data-theme", getTheme());
 	// change button
