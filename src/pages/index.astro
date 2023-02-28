@@ -1,85 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import Hero from '../components/Hero.astro';
-import Navbar from '../components/Navbar.astro';
+
+interface Project {
+	title: string;
+	text: string;
+	image: string;
+	url: string;
+	github: string;
+}
+
+const projects: Array<Project> = [
+	{
+		title: "Project 1",
+		text: "lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur",
+		image: "/images/projects/game.jpg",
+		url: "https://google.com",
+		github: "https://github.com",
+	},
+	{
+		title: "Project 2",
+		text: "lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur",
+		image: "/images/projects/garden.jpg",
+		url: "https://google.com",
+		github: "https://github.com",
+	},
+	{
+		title: "Project 3",
+		text: "lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur",
+		image: "/images/projects/project.jpg",
+		url: "https://google.com",
+		github: "https://github.com",
+	},
+	{
+		title: "Project 4",
+		text: "lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur",
+		image: "/images/projects/tech.jpg",
+		url: "https://google.com",
+		github: "https://github.com",
+	},
+]
 ---
 
-<Layout title="Joe's Website">
-	<Navbar />
-	<Hero title="Joe's Website" text="Welcome to my Website! I'm a CS student and interested in the fields of machine learning, algorithms and quantum computing. Have a look and check out my projects."/>
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+<Layout title="Joe's Website 👾">
+	
+	<Hero title="👾 Joe's Website 👾" text="Welcome to my Website! I'm a CS student and interested in the fields of bioinformatics, machine learning, algorithms and quantum computing. Have a look and check out my projects. Just someone who is hyped about new stuff very easliy and gets excited 👾"/>
+	<main class="pt-24">
+		<h1 class="pb-16">Here are some of my <span class="text-primary-focus">Projects</span></h1>
+		{projects.map(project => (
+			<div class="py-2">
+				<ProjectCard 
+				title={project.title}
+				text={project.text}
+				image={project.image}
+				url={project.url}
+				github={project.github}
+				/>
+			</div>
+		))}
 	</main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+
 </style>
