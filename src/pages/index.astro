@@ -9,15 +9,17 @@ interface Project {
 	image: string;
 	url: string;
 	github: string;
+	private_repo: boolean;
 }
 
 const projects: Array<Project> = [
 	{
-		title: "Project 1",
-		text: "lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur",
+		title: "Awesome CV",
+		text: "Awesome CV is a plattform w",
 		image: "/images/projects/game.jpg",
-		url: "https://google.com",
-		github: "https://github.com",
+		url: "https://awesome-cv.com",
+		github: "",
+		private_repo: true,
 	},
 	{
 		title: "Square Garden",
@@ -25,29 +27,32 @@ const projects: Array<Project> = [
 		image: "/images/projects/garden.jpg",
 		url: "https://square-garden.de/",
 		github: "https://github.com/joemay96/square_garden",
+		private_repo: false
 	},
 	{
-		title: "Project 3",
-		text: "lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur",
+		title: "Weather Station",
+		text: "As a small project in university we had to build a small project. I build a weather station with the inclusion of an API and a small simple front-end.",
 		image: "/images/projects/project.jpg",
-		url: "https://google.com",
-		github: "https://github.com",
+		url: "https://weatherstation.sharky.live",
+		github: "https://github.com/joemay96/swh_weatherstation",
+		private_repo: false
 	},
 	{
-		title: "Project 4",
-		text: "lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur",
+		title: "Chess AI",
+		text: "I build a Chess AI, based on AlphaZero. The main idea was to bring human behavior into a chess engine that will inmitate a speical player.",
 		image: "/images/projects/tech.jpg",
-		url: "https://google.com",
-		github: "https://github.com",
+		url: "https://chess.sharky.live",
+		github: "https://github.com/joemay96/chess_ai",
+		private_repo: false
 	},
 ]
 ---
 
-<Layout title="Joe's Website 👾">
+<Layout title="Joe's Website">
 	
-	<Hero title="👾 Joe's Website 👾" text="Welcome to my Website! I'm a CS student and interested in the fields of bioinformatics, machine learning, algorithms and quantum computing. Have a look and check out my projects. Just someone who is hyped about new stuff very easliy and gets excited 👾"/>
+	<Hero title="Joe's Website 👾" text="Welcome to my Website! I'm a CS student and interested in the fields of bioinformatics, machine learning, algorithms and quantum computing. Have a look and check out my projects. Just someone who is motivated about new stuff easliy!"/>
 	<main class="pt-24 w-full text-center flex flex-col items-center">
-		<h1 class="pb-16">Here are some of my <span class="text-primary-focus">Projects</span></h1>
+		<h1 class="pb-16 text-4xl font-bold">Here are some of my <span class="text-primary-focus">Projects</span></h1>
 		{projects.map(project => (
 			<div class="py-2 w-2/5">
 				<ProjectCard 
@@ -56,6 +61,7 @@ const projects: Array<Project> = [
 				image={project.image}
 				url={project.url}
 				github={project.github}
+				private_repo={project.private_repo}
 				/>
 			</div>
 		))}
