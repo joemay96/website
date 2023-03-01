@@ -20,11 +20,11 @@ const projects: Array<Project> = [
 		github: "https://github.com",
 	},
 	{
-		title: "Project 2",
-		text: "lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur",
+		title: "Square Garden",
+		text: "SquareGarden is an application to organizse your gardening. You can set reminders for fertilizing and watering your plants.",
 		image: "/images/projects/garden.jpg",
-		url: "https://google.com",
-		github: "https://github.com",
+		url: "https://square-garden.de/",
+		github: "https://github.com/joemay96/square_garden",
 	},
 	{
 		title: "Project 3",
@@ -46,10 +46,10 @@ const projects: Array<Project> = [
 <Layout title="Joe's Website 👾">
 	
 	<Hero title="👾 Joe's Website 👾" text="Welcome to my Website! I'm a CS student and interested in the fields of bioinformatics, machine learning, algorithms and quantum computing. Have a look and check out my projects. Just someone who is hyped about new stuff very easliy and gets excited 👾"/>
-	<main class="pt-24">
+	<main class="pt-24 w-full text-center flex flex-col items-center">
 		<h1 class="pb-16">Here are some of my <span class="text-primary-focus">Projects</span></h1>
 		{projects.map(project => (
-			<div class="py-2">
+			<div class="py-2 w-2/5">
 				<ProjectCard 
 				title={project.title}
 				text={project.text}

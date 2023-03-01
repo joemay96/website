@@ -7,7 +7,7 @@ module.exports = {
 	plugins: [require("daisyui")],
 	daisyui: {
 		//emerald, halloween ?
-		themes: ["retro", "forest", "coffe", "garden", "emerald", "halloween"],
+		themes: ["retro", "forest", "coffe", "garden", "corporate", "emerald", "halloween"],
 		darkTheme: "forest",
 		lightTheme: "retro",
 	},
