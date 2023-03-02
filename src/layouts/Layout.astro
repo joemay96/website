@@ -24,6 +24,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<div class="cursor" id="cursor"></div>
 		<Navbar />
 		<slot />
 	</body>
@@ -52,6 +53,25 @@ const { title } = Astro.props;
 	window.localStorage.setItem("mode", mode)
 	window.localStorage.setItem("theme", mode === "light" ? "corporate" : "forest");
 </script>
+
+<!-- Mouse cursor -->
+<script>
+	const cursor = document.getElementById("cursor");
+	window.addEventListener("mousemove", e => {
+		cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;");
+	})
+
+	// on click event is triggered
+	window.addEventListener("click", e => {
+        cursor.classList.add("expand");
+        
+        setTimeout(() => {
+          cursor.classList.remove("expand");
+        }, 500)
+      })
+</script>
+
+<!-- Animation with aos -->
 <script>
 	AOS.init({
 		disable: "phone",
