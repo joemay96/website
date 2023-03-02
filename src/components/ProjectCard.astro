@@ -10,7 +10,7 @@ export interface Props {
 const { title, text, image, url, github, private_repo } = Astro.props;
 ---
 
-<div class="card bg-accent shadow-xl"> <!-- card-side -->
+<div class="card bg-accent shadow-xl" data-aos-delay="450" data-aos-duration="850" data-aos="fade-left"> <!-- card-side -->
 	<figure class="max-h-52"><img src={image} alt="Movie"/></figure>
 	<div class="card-body">
 	  <h2 class="card-title text-accent-content">{title}</h2>
