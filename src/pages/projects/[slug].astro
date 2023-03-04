@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-// import Card from "../components/Card.astro";
+import Card from "../../components/ProjectArticleCard.astro";
 
 export async function getStaticPaths() {
     const projects = await Astro.glob("../../projects/*.md");
@@ -10,22 +10,34 @@ export async function getStaticPaths() {
             slug: project.frontmatter.slug
         },
         props: {
-            project
+            project,
         }
     }))
 }
 
 const {Content, frontmatter} = Astro.props.project;
+console.log(frontmatter.image)
 ---
 
 <Layout title={frontmatter.title}>
-    <section class="page-content">
-        <div class="container">
-            <h2>{frontmatter.title}</h2>
-            <div>
-                Written by <strong>{frontmatter.author}</strong> on {new Date(frontmatter.date).toLocaleDateString()}
-            </div>
-            <Content />
+
+    <figure class="max-h-52"><img src={frontmatter.image} alt="Movie"/></figure>
+
+    <section class="page-content min-h-90 pt-24">
+        <div class="flex justify-center">
+            <Card title={frontmatter.title}>
+                <!-- <h2>{frontmatter.title}</h2> -->
+                <div>
+                    Written by <strong>{frontmatter.author}</strong> on {new Date(frontmatter.date).toLocaleDateString()}
+                </div>
+                <Content />
+            </Card>
         </div>
     </section>
 </Layout>
+
+<style>
+    .min-h-90 {
+        min-height: calc(100vh - 76px);
+    }
+</style>

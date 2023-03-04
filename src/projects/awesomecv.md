@@ -4,6 +4,7 @@ slug: awesomecv
 excerpt: The awesome CV project that lets you build your professional CV in minutes.
 date: 04-03-2023
 author: joemay
+image: /images/projects/game.jpg
 ---
 # Awesome CV
 

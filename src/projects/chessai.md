@@ -4,6 +4,7 @@ slug: chessai
 excerpt: The awesome CV project that lets you build your professional CV in minutes
 date: 04-03-2023
 author: joemay
+image: /images/projects/tech.jpg
 ---
 # Awesome CV
 

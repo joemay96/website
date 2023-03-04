@@ -4,6 +4,7 @@ slug: weatherstation
 excerpt: bla
 date: 04-03-2023
 author: joemay
+image: /images/projects/project.jpg
 ---
 # Awesome CV
 

@@ -4,6 +4,7 @@ slug: squaregarden
 excerpt: bla
 date: 04-03-2023
 author: joemay
+image: /images/projects/garden.jpg
 ---
 # Awesome CV
 
