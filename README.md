@@ -9,6 +9,7 @@ Meine Website und Dinge zum einbauen
 
 - [ ] Animating SVG in the Hero section
 - [ ] Shader on the website - maybe in the background when loading in the project cards
+- [ ] Three.js Grafik einbauen?
 
 - [ ] Contact me section before footer
 

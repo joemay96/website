@@ -10,6 +10,7 @@ interface Project {
 	url: string;
 	github: string;
 	private_repo: boolean;
+	link: string
 }
 
 const projects: Array<Project> = [
@@ -20,6 +21,7 @@ const projects: Array<Project> = [
 		url: "https://awesome-cv.com",
 		github: "",
 		private_repo: true,
+		link: "awesomecv"
 	},
 	{
 		title: "Square Garden",
@@ -27,7 +29,8 @@ const projects: Array<Project> = [
 		image: "/images/projects/garden.jpg",
 		url: "https://square-garden.de/",
 		github: "https://github.com/joemay96/square_garden",
-		private_repo: false
+		private_repo: false,
+		link: "squaregarden"
 	},
 	{
 		title: "Weather Station",
@@ -35,7 +38,8 @@ const projects: Array<Project> = [
 		image: "/images/projects/project.jpg",
 		url: "https://weatherstation.sharky.live",
 		github: "https://github.com/joemay96/swh_weatherstation",
-		private_repo: false
+		private_repo: false,
+		link: "weatherstation"
 	},
 	{
 		title: "Chess AI",
@@ -43,7 +47,8 @@ const projects: Array<Project> = [
 		image: "/images/projects/tech.jpg",
 		url: "https://chess.sharky.live",
 		github: "https://github.com/joemay96/chess_ai",
-		private_repo: false
+		private_repo: false,
+		link: "chessai"
 	},
 ]
 ---
@@ -62,6 +67,7 @@ const projects: Array<Project> = [
 				url={project.url}
 				github={project.github}
 				private_repo={project.private_repo}
+				link={project.link}
 				/>
 			</div>
 		))}
