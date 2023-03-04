@@ -1,0 +1,23 @@
+---
+export interface props {
+    imagePath: string;
+    title: string;
+}
+
+const {imagePath, title} = Astro.props;
+const image = "url("+imagePath+")";
+---
+
+<div class="showcase flex justify-center items-center">
+    <h1 class="text-6xl font-bold">{title}</h1>
+</div>
+
+<style define:vars={{ image }}>
+.showcase {
+    widht: 100%;
+    min-height: 40vh;
+    max-height: 45vh;
+    background-image: var(--image); 
+    background-color: hsl(var(--p));
+}
+</style>

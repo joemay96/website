@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/ProjectArticleCard.astro";
+import Showcase from "../../components/Showcase.astro";
 
 export async function getStaticPaths() {
     const projects = await Astro.glob("../../projects/*.md");
@@ -16,12 +17,11 @@ export async function getStaticPaths() {
 }
 
 const {Content, frontmatter} = Astro.props.project;
-console.log(frontmatter.image)
 ---
 
-<Layout title={frontmatter.title}>
-
-    <figure class="max-h-52"><img src={frontmatter.image} alt="Movie"/></figure>
+<Layout title={frontmatter.title} navbarColor="full" navbarDelay={0} >
+    <div class="pt-48"></div>
+    <Showcase imagePath={frontmatter.image} title={frontmatter.title} />
 
     <section class="page-content min-h-90 pt-24">
         <div class="flex justify-center">
