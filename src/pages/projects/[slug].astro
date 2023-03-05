@@ -23,7 +23,7 @@ const {Content, frontmatter} = Astro.props.project;
     <div class="pt-48"></div>
     <Showcase imagePath={frontmatter.image} title={frontmatter.title} />
 
-    <section class="page-content min-h-90 pt-24">
+    <section class="page-content min-h-90 py-24">
         <div class="flex justify-center">
             <Card title={frontmatter.title}>
                 <!-- <h2>{frontmatter.title}</h2> -->
@@ -37,7 +37,7 @@ const {Content, frontmatter} = Astro.props.project;
 </Layout>
 
 <style>
-    .min-h-90 {
+    /* .min-h-90 {
         min-height: calc(100vh - 76px);
-    }
+    } */
 </style>
