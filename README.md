@@ -7,7 +7,7 @@ Meine Website und Dinge zum einbauen
 - [x] Animations for everything on the site
 - [ ] Description of the projects
 
-- [ ] Animating SVG in the Hero section
+- [ ] Animating SVG in the Hero section oder ein 3D-Model wie: [Tutorial](https://simondev.teachable.com/courses/1783153/lectures/40252874) oder eine Kombi aus denen hier [1](https://www.youtube.com/watch?v=YK1Sw_hnm58) [2](https://www.youtube.com/watch?v=vM8M4QloVL0&t=780s) oder eine andere Art Shader [hier](https://www.youtube.com/watch?v=C8Cuwq1eqDw)
 - [ ] Shader on the website - maybe in the background when loading in the project cards
 
 - [ ] Contact me section before footer
