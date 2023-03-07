@@ -1,81 +1,125 @@
 ---
-import Footer from '../components/Footer.astro'
+import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 
 export interface Props {
-	title: string;
-	navbarColor?: string;
-	navbarDelay?: number;
+    title: string;
+    navbarColor?: string;
+    navbarDelay?: number;
 }
 
 const { title, navbarColor, navbarDelay } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/logo_light.svg" />
-		<link rel="stylesheet" href="/css/main.css">
-		<!-- <meta name="generator" content={Astro.generator} /> -->
-		<script defer src="https://kit.fontawesome.com/b09ee7d884.js" crossorigin="anonymous"></script>
-		<!-- AOS import for animations - change later on -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<title>{title}</title>
-	</head>
-	<body>
-		<div class="cursor" id="cursor"></div>
-		<Navbar color={navbarColor} delay={navbarDelay} />
-		<slot />
-	</body>
-	<Footer />
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width' />
+        <link rel='icon' type='image/svg+xml' href='/logo_light.svg' />
+        <link rel='stylesheet' href='/css/main.css' />
+        <!-- <meta name="generator" content={Astro.generator} /> -->
+        <script
+            defer
+            src='https://kit.fontawesome.com/b09ee7d884.js'
+            crossorigin='anonymous'
+        ></script>
+        <!-- AOS import for animations - change later on -->
+        <link
+            rel='stylesheet'
+            href='https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css'
+            integrity='sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=='
+            crossorigin='anonymous'
+            referrerpolicy='no-referrer'
+        />
+        <script
+            src='https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js'
+            integrity='sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=='
+            crossorigin='anonymous'
+            referrerpolicy='no-referrer'
+        ></script>
+        <title>{title}</title>
+    </head>
+    <body>
+        <div class='cursor--point' id='cursor'></div>
+        <div class='cursor--follow' id='cursor--follow'></div>
+        <Navbar color={navbarColor} delay={navbarDelay} />
+        <slot />
+    </body>
+    <Footer />
 </html>
 
 <!-- Script for getting chosen theme -->
 <script is:inline>
-	const mode = (() => {
-		if(typeof localStorage !== "undefined" && localStorage.getItem("mode")) {
-			return localStorage.getItem("mode");
-		}
-		if(window.matchMedia("(prefers-color-scheme: dark").matches) {
-			return "dark";
-		}
-		return "light";
-	})();
+    const mode = (() => {
+        if (
+            typeof localStorage !== 'undefined' &&
+            localStorage.getItem('mode')
+        ) {
+            return localStorage.getItem('mode');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark').matches) {
+            return 'dark';
+        }
+        return 'light';
+    })();
 
-	if(mode === "light") {
-		document.documentElement.classList.remove("dark");
-		document.documentElement.setAttribute("data-theme", "corporate");
-	} else {
-		document.documentElement.classList.add("dark");
-		document.documentElement.setAttribute("data-theme", "forest");
-	}
-	window.localStorage.setItem("mode", mode)
-	window.localStorage.setItem("theme", mode === "light" ? "corporate" : "forest");
+    if (mode === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'corporate');
+    } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'forest');
+    }
+    window.localStorage.setItem('mode', mode);
+    window.localStorage.setItem(
+        'theme',
+        mode === 'light' ? 'corporate' : 'forest',
+    );
 </script>
 
 <!-- Mouse cursor -->
 <script>
-	const cursor = document.getElementById("cursor");
-	window.addEventListener("mousemove", e => {
-		cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;");
-	})
+    // const cursor_point = document.getElementById('.cursor');
+    const cursor_point = document.querySelector('.cursor--point');
+    // const cursor_follow = document.getElementById('.cursor--follow');
+    const cursor_follow = document.querySelector('.cursor--follow');
+    document.body.onpointermove = e => {
+        const { clientX, clientY } = e;
+        cursor_point.style.left = `${clientX}px`;
+        cursor_point.style.top = `${clientY}px`;
+        cursor_follow.animate(
+            {
+                left: `${clientX}px`,
+                top: `${clientY}px`,
+            },
+            { duration: 800, fill: 'forwards' },
+        );
+    };
+    // window.addEventListener('mousemove', e => {
+    //     cursor_point.style(
+    //         // 'style',
+    //         'top: ' + (e.pageY - 10) + 'px; left: ' + (e.pageX - 10) + 'px;',
+    //     );
+    //     cursor_follow.setAttribute(
+    //         'style',
+    //         'top: ' + (e.pageY - 10) + 'px; left: ' + (e.pageX - 10) + 'px;',
+    //     );
+    // });
 
-	// on click event is triggered
-	window.addEventListener("click", e => {
-        cursor.classList.add("expand");
-        
-        setTimeout(() => {
-          cursor.classList.remove("expand");
-        }, 500)
-      })
+    // on click event is triggered
+    // window.addEventListener('click', e => {
+    //     cursor.classList.add('expand');
+
+    //     setTimeout(() => {
+    //         cursor.classList.remove('expand');
+    //     }, 500);
+    // });
 </script>
 
 <!-- Animation with aos -->
 <script>
-	AOS.init({
-		disable: "phone",
-	});
+    AOS.init({
+        disable: 'phone',
+    });
 </script>
