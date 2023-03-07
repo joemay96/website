@@ -1,0 +1,57 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: website-deployment
+  namespace: website
+  labels:
+    app: website
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: website
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      containers:
+      - name: website
+        image: joemay96/website:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: website-service
+  namespace: website
+spec:
+  selector:
+    app: website
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: website-ingress
+# Wichtig für das Zertifikat wo der Ingress läuft
+  namespace: website
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`sharky.live`)
+      kind: Rule
+      services:
+        - name: website-service
+          port: 80
+  tls:
+    secretName: website-tls

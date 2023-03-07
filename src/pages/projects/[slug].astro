@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/ProjectArticleCard.astro";
+import Showcase from "../../components/Showcase.astro";
+
+export async function getStaticPaths() {
+    const projects = await Astro.glob("../../projects/*.md");
+
+    return projects.map(project => ({
+        params: {
+            slug: project.frontmatter.slug
+        },
+        props: {
+            project,
+        }
+    }))
+}
+
+const {Content, frontmatter} = Astro.props.project;
+---
+
+<Layout title={frontmatter.title} navbarColor="full" navbarDelay={0} >
+    <div class="pt-48"></div>
+    <Showcase imagePath={frontmatter.image} title={frontmatter.title} />
+
+    <section class="page-content min-h-90 py-24">
+        <div class="flex justify-center">
+            <Card title={frontmatter.title}>
+                <!-- <h2>{frontmatter.title}</h2> -->
+                <div>
+                    Written by <strong>{frontmatter.author}</strong> on {new Date(frontmatter.date).toLocaleDateString()}
+                </div>
+                <Content />
+            </Card>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    /* .min-h-90 {
+        min-height: calc(100vh - 76px);
+    } */
+</style>

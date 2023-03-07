@@ -1,8 +1,15 @@
 ---
 import { Image } from '@astrojs/image/components';
+
+export interface props {
+  color?: string;
+  delay?: number;
+}
+
+const {color, delay=2000} = Astro.props;
 ---
 
-<div class="navbar bg-transparent" data-aos="fade-down" data-aos-once="true" data-aos-delay="2000" data-aos-duration="600">
+<div class="navbar bg-transparent" data-aos="fade-down" data-aos-once="true" data-aos-delay={delay} data-aos-duration="600"> <!-- TODO: bg-neutral on project page -->
   <span class="flex-1">
     <a href="/" class="btn btn-ghost normal-case text-xl">
       <Image src={import("../../public/logo_dark.svg")} alt="Avatar" width={44} class=""/>
