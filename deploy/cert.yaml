@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: website
+  namespace: website
+spec:
+  secretName: website-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "sharky.live"
+  dnsNames:
+  - "sharky.live"
