@@ -5,6 +5,10 @@ excerpt: The awesome CV project that lets you build your professional CV in minu
 date: 04-03-2023
 author: joemay
 image: /images/projects/game.jpg
+
+url: 'https://awesome-cv.com'
+github: ''
+private_repo: true
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, quis magni dignissimos in, quidem qui dicta optio deserunt corrupti tempore harum perferendis nisi? Illo incidunt laborum reprehenderit. Sequi, ad quos eaque quasi veniam corporis odit error, ea soluta nostrum debitis impedit! Quisquam aperiam animi autem nemo omnis possimus fugiat qui, pariatur minus repellat quam obcaecati adipisci quas totam incidunt fuga, iste sapiente quibusdam ea sed, voluptatum et. Ipsam perferendis velit totam reiciendis dolore omnis, veritatis corporis tempora culpa itaque obcaecati! Nesciunt beatae eos blanditiis itaque. Repudiandae, ipsam. Aliquid, minima voluptas quam explicabo, tenetur doloribus in qui similique magni laboriosam eveniet.

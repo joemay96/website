@@ -1,31 +1,24 @@
 ---
 export interface Props {
-    title: string;
-    text: string;
-    image: string;
-    url: string;
-    github: string;
+    // title: string;
     private_repo: boolean;
-    link: string;
+    url: string;
+    github?: string;
 }
-const { title, text, image, url, github, private_repo, link } = Astro.props;
-const blogLink = `/projects/${link}`;
+
+const { private_repo, url, github = '#' } = Astro.props;
 ---
 
 <div
-    class='card bg-accent shadow-xl'
+    class='card glass shadow-xl w-2/3'
     data-aos-delay='450'
     data-aos-duration='850'
     data-aos='fade-left'
 >
-    <!-- card-side -->
-    <a href={blogLink}>
-        <figure class='max-h-52'><img src={image} alt='Movie' /></figure>
-    </a>
-    <div class='card-body'>
-        <h2 class='card-title text-accent-content'>{title}</h2>
-        <p class='text-accent-content'>{text}</p>
-        <div class='card-actions justify-end'>
+    <div class='card-body content'>
+        <!-- <h2 class='card-title text-primary-content'>{title}</h2> -->
+        <slot />
+        <div class='card-actions justify-center pt-4'>
             <a href={url} class='btn btn-primary cursor-none' target='_blank'
                 >Project</a
             >
@@ -50,3 +43,29 @@ const blogLink = `/projects/${link}`;
         </div>
     </div>
 </div>
+
+<!-- The main styling for all the project articles -->
+<style>
+    :root {
+        --project-article-card-color: 75, 107, 251;
+    }
+
+    .content p {
+        /* color: hsl(var(--project-article-card-color)); */
+        color: hsl(var(--bc));
+        background: red;
+    }
+</style>
+
+<script>
+    // Theming
+    // const mode = localStorage.getItem('mode');
+    // const r = document.querySelector(':root');
+
+    // console.log(mode);
+    // if (mode === 'dark') {
+    //     r.style.setProperty('--project-article-card-color', '75,107,251');
+    // } else {
+    //     r.style.setProperty('--project-article-card-color', '30,184,84');
+    // }
+</script>
