@@ -1,3 +1,18 @@
+---
+export interface Props {
+	title: string;
+	// text: string;
+	image: string;
+	url: string;
+	github: string;
+	private_repo: boolean;
+	link: string;
+}
+//! Alles was in mit ="" ausgefüllt ist kann in die blog site rein
+const { title, text="", image, url="", github="", private_repo="", link } = Astro.props;
+const blogLink = `/projects/${link}`;
+---
+
 <div class='screen'>
     <div class='screen-image'></div>
     <div class='screen-overlay'></div>
@@ -50,14 +65,14 @@
             </svg>
         </div>
         <div class='projectinfo'>
-            <span class='name'>Projekt Name</span>
-            <a class='link' href='projeect' target='_blank'>@Link to Project</a>
+            <span class='name'>{title}</span>
+            <a class='link' href={link} target='_blank'>To Project</a>
         </div>
     </div>
 </div>
 
-<style is:inline>
-    :root {
+<style>
+    /* :root {
         --primary-rgb: 31, 214, 95;
     }
 
@@ -69,15 +84,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
+    } */
 
     .screen {
         width: 500px;
         display: flex;
-        border: 3px solid rgb(var(--primary-rgb), 0.8);
+        /* border: 3px solid rgb(var(--primary-rgb), 0.8);  old*/
+        border: 3px solid hsl(var(--p), 0.8);
         aspect-ratio: 10 / 16;
         border-radius: 1rem;
-        background-color: rgb(var(--primary-rgb), 0.15);
+        /* background-color: rgb(var(--primary-rgb), 0.15); old */
+        background-color: hsl(var(--p)), 0.15);
 
         overflow: hidden;
 
@@ -116,8 +133,10 @@
         left: 0px;
         top: 0px;
         background: linear-gradient(
-            rgb(var(--primary-rgb), 0.15),
-            rgb(var(--primary-rgb), 0.15) 3px,
+            hsl(var(--p)), 0.15),
+            /* rgb(var(--primary-rgb), 0.15),
+            rgb(var(--primary-rgb), 0.15) 3px, */
+            hsl(var(--p)), 0.15) 3px,
             transparent 3px,
             transparent 9px
         );
@@ -156,7 +175,8 @@
         z-index: 3;
         margin: 1rem;
         padding-bottom: 6rem;
-        border: 1px solid rgb(var(--primary-rgb) / 50%);
+        /* border: 1px solid rgb(var(--primary-rgb) / 50%); */
+        border: 1px solid hsl(var(--p)) / 50%);
         border-radius: 0.6rem;
     }
 
@@ -177,9 +197,11 @@
         content: '';
         position: absolute;
         top: 0px;
-        background-color: rgb(var(--primary-rgb));
+        /* background-color: rgb(var(--primary-rgb)); */
+        background-color: hsl(var(--p)));
         border-radius: 1rem;
-        box-shadow: 0px 0px 8px 3px rgb(var(--primary-rgb) / 60%);
+        /* box-shadow: 0px 0px 8px 3px rgb(var(--primary-rgb) / 60%); */
+        box-shadow: 0px 0px 8px 3px hsl(var(--p)) / 60%);
     }
 
     .screen > .screen-content > .projectinfo:before {

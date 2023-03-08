@@ -26,13 +26,13 @@ body {
   
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: hsl(var(--s));
+    background: linear-gradient(to bottom, hsl(var(--p)), hsl(var(--a)));
     border-radius: 10px;
 }
   
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--sf));
+    background: linear-gradient(to bottom, hsl(var(--pf)), hsl(var(--af)));
 }
 
 
