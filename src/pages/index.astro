@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+// import ProjectCard from '../components/ProjectCard.astro';
+import ProjectCard from '../components/projects/costum_project_card.astro';
 import Hero from '../components/Hero.astro';
 
 interface Project {
@@ -71,14 +72,10 @@ const projects: Array<Project> = [
         </h1>
         {
             projects.map(project => (
-                <div class='py-2 w-2/5'>
+                <div class='py-2 w-2/5 flex align-center justify-center'>
                     <ProjectCard
                         title={project.title}
-                        text={project.text}
                         image={project.image}
-                        url={project.url}
-                        github={project.github}
-                        private_repo={project.private_repo}
                         link={project.link}
                     />
                 </div>

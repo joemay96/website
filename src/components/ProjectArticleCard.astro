@@ -1,17 +1,22 @@
 ---
 export interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 ---
 
-<div class="card bg-neutral text-neutral-content shadow-xl w-2/3" data-aos-delay="450" data-aos-duration="850" data-aos="fade-left">
-    <div class="card-body">
-      <h2 class="card-title">{title}</h2>
-      <slot />
-      <!-- <div class="card-actions justify-end">
+<div
+    class='card bg-neutral text-neutral-content shadow-xl w-2/3'
+    data-aos-delay='450'
+    data-aos-duration='850'
+    data-aos='fade-left'
+>
+    <div class='card-body'>
+        <h2 class='card-title'>{title}</h2>
+        <slot />
+        <!-- <div class="card-actions justify-end">
         <button class="btn btn-primary">Buy Now</button>
       </div> -->
     </div>
-  </div>
+</div>
