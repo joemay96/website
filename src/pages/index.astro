@@ -1,79 +1,79 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+// import ProjectCard from '../components/ProjectCard.astro';
+import ProjectCard from '../components/projects/costum_project_card.astro';
 import Hero from '../components/Hero.astro';
 
 interface Project {
-	title: string;
-	text: string;
-	image: string;
-	url: string;
-	github: string;
-	private_repo: boolean;
-	link: string
+    title: string;
+    slug?: string;
+    image: string;
+    link: string;
 }
 
 const projects: Array<Project> = [
-	{
-		title: "Awesome CV",
-		text: "Awesome CV is a plattform w",
-		image: "/images/projects/game.jpg",
-		url: "https://awesome-cv.com",
-		github: "",
-		private_repo: true,
-		link: "awesomecv"
-	},
-	{
-		title: "Square Garden",
-		text: "SquareGarden is an application to organizse your gardening. You can set reminders for fertilizing and watering your plants.",
-		image: "/images/projects/garden.jpg",
-		url: "https://square-garden.de/",
-		github: "https://github.com/joemay96/square_garden",
-		private_repo: false,
-		link: "squaregarden"
-	},
-	{
-		title: "Weather Station",
-		text: "As a small project in university we had to build a small project. I build a weather station with the inclusion of an API and a small simple front-end.",
-		image: "/images/projects/project.jpg",
-		url: "https://weatherstation.sharky.live",
-		github: "https://github.com/joemay96/swh_weatherstation",
-		private_repo: false,
-		link: "weatherstation"
-	},
-	{
-		title: "Chess AI",
-		text: "I build a Chess AI, based on AlphaZero. The main idea was to bring human behavior into a chess engine that will inmitate a speical player.",
-		image: "/images/projects/tech.jpg",
-		url: "https://chess.sharky.live",
-		github: "https://github.com/joemay96/chess_ai",
-		private_repo: false,
-		link: "chessai"
-	},
-]
+    {
+        title: 'Awesome CV',
+        slug: 'Awesome CV is a plattform w',
+        image: '/images/projects/game.jpg',
+        link: 'awesomecv',
+    },
+    {
+        title: 'Square Garden',
+        slug: 'SquareGarden is an application to organizse your gardening. You can set reminders for fertilizing and watering your plants.',
+        image: '/images/projects/garden.jpg',
+        link: 'squaregarden',
+    },
+    {
+        title: 'Weather Station',
+        slug: 'As a small project in university we had to build a small project. I build a weather station with the inclusion of an API and a small simple front-end.',
+        image: '/images/projects/project.jpg',
+        link: 'weatherstation',
+    },
+    {
+        title: 'Chess AI',
+        slug: 'I build a Chess AI, based on AlphaZero. The main idea was to bring human behavior into a chess engine that will inmitate a speical player.',
+        image: '/images/projects/tech.jpg',
+        link: 'chessai',
+    },
+];
 ---
 
 <Layout title="Joe's Website">
-	
-	<Hero title="Joe's Website 👾" text="Welcome to my Website! I'm a CS student and interested in the fields of bioinformatics, machine learning, algorithms and quantum computing. Have a look and check out my projects. Just someone who is motivated about new stuff easliy!"/>
-	<main class="pt-24 w-full text-center flex flex-col items-center">
-		<h1 class="pb-16 text-4xl font-bold" data-aos-delay="500" data-aos-duration="800" data-aos="zoom-in">Here are some of my <span class="text-primary-focus">Projects</span></h1>
-		{projects.map(project => (
-			<div class="py-2 w-2/5">
-				<ProjectCard 
-				title={project.title}
-				text={project.text}
-				image={project.image}
-				url={project.url}
-				github={project.github}
-				private_repo={project.private_repo}
-				link={project.link}
-				/>
-			</div>
-		))}
-	</main>
+    <Hero
+        title="Joe's Website 👾"
+        text="Welcome to my Website! I'm a CS student and interested in the fields of bioinformatics, machine learning, algorithms and quantum computing. Have a look and check out my projects. Just someone who is motivated about new stuff easliy!"
+    />
+    <main
+        class='pt-24 w-full text-center flex flex-col items-center bg-base-100'
+    >
+        <h1
+            class='pb-16 text-4xl font-bold'
+            data-aos-delay='500'
+            data-aos-duration='800'
+            data-aos='zoom-in'
+        >
+            Here are some of my <span>Projects</span>
+        </h1>
+        {
+            projects.map(project => (
+                <div class='py-2 w-2/5 flex align-center justify-center'>
+                    <ProjectCard
+                        title={project.title}
+                        image={project.image}
+                        link={project.link}
+                        slug={project.slug}
+                    />
+                </div>
+            ))
+        }
+    </main>
 </Layout>
 
 <style>
-
+    h1 > span {
+        background: linear-gradient(to right, hsl(var(--p)), hsl(var(--af)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 </style>

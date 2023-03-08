@@ -1,43 +1,44 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Card from "../../components/ProjectArticleCard.astro";
-import Showcase from "../../components/Showcase.astro";
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/projects/ProjectArticleCard.astro';
+import Showcase from '../../components/Showcase.astro';
 
 export async function getStaticPaths() {
-    const projects = await Astro.glob("../../projects/*.md");
+    const projects = await Astro.glob('../../projects/*.md');
 
     return projects.map(project => ({
         params: {
-            slug: project.frontmatter.slug
+            slug: project.frontmatter.slug,
         },
         props: {
             project,
-        }
-    }))
+        },
+    }));
 }
 
-const {Content, frontmatter} = Astro.props.project;
+const { Content, frontmatter } = Astro.props.project;
 ---
 
-<Layout title={frontmatter.title} navbarColor="full" navbarDelay={0} >
-    <div class="pt-48"></div>
+<Layout title={frontmatter.title} navbarColor='full' navbarDelay={0}>
+    <div class='pt-32'></div>
     <Showcase imagePath={frontmatter.image} title={frontmatter.title} />
 
-    <section class="page-content min-h-90 py-24">
-        <div class="flex justify-center">
-            <Card title={frontmatter.title}>
-                <!-- <h2>{frontmatter.title}</h2> -->
-                <div>
-                    Written by <strong>{frontmatter.author}</strong> on {new Date(frontmatter.date).toLocaleDateString()}
-                </div>
+    <main
+        class='page-content min-h-90 pt-12 pb-24 w-full text-center flex flex-col items-center bg-base-100'
+    >
+        <div class='flex justify-center max-width-fill-screen'>
+            <Card
+                private_repo={frontmatter.private_repo}
+                url={frontmatter.url}
+                github={frontmatter.github}
+            >
                 <Content />
             </Card>
         </div>
-    </section>
+    </main>
 </Layout>
-
 <style>
-    /* .min-h-90 {
-        min-height: calc(100vh - 76px);
-    } */
+    .page-content > .max-width-fill-screen {
+        max-width: 1600px;
+    }
 </style>

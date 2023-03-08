@@ -21,6 +21,8 @@ function changeTheme() {
 	// change dark || light mode
 	const mode = getMode();
 	const toggledMode = mode === "light" ? "dark" : "light";
+	const r = document.querySelector(":root");
+
 	setMode(toggledMode);
 	// change theme
 	if (toggledMode === "dark") {
@@ -37,5 +39,17 @@ function changeTheme() {
 	if (mode === "light") {
 		darkBtn.style.visibility = "none";
 		lightBtn.style.visibility = "block";
+	}
+
+	// Change Costum Project Card
+	/* 
+        --primary-forest: 30,184,84;
+        --primary-corporate: 75,107,251;
+        --primary-garden: 92,127,103; 
+    */
+	if (mode === "light") {
+		r.style.setProperty("--primary-screen-rgb", "30,184,84");
+	} else {
+		r.style.setProperty("--primary-screen-rgb", "75,107,251");
 	}
 }
