@@ -6,7 +6,7 @@ import Hero from '../components/Hero.astro';
 
 interface Project {
     title: string;
-    text: string;
+    slug?: string;
     image: string;
     url: string;
     github: string;
@@ -17,7 +17,7 @@ interface Project {
 const projects: Array<Project> = [
     {
         title: 'Awesome CV',
-        text: 'Awesome CV is a plattform w',
+        slug: 'Awesome CV is a plattform w',
         image: '/images/projects/game.jpg',
         url: 'https://awesome-cv.com',
         github: '',
@@ -26,7 +26,7 @@ const projects: Array<Project> = [
     },
     {
         title: 'Square Garden',
-        text: 'SquareGarden is an application to organizse your gardening. You can set reminders for fertilizing and watering your plants.',
+        slug: 'SquareGarden is an application to organizse your gardening. You can set reminders for fertilizing and watering your plants.',
         image: '/images/projects/garden.jpg',
         url: 'https://square-garden.de/',
         github: 'https://github.com/joemay96/square_garden',
@@ -35,7 +35,7 @@ const projects: Array<Project> = [
     },
     {
         title: 'Weather Station',
-        text: 'As a small project in university we had to build a small project. I build a weather station with the inclusion of an API and a small simple front-end.',
+        slug: 'As a small project in university we had to build a small project. I build a weather station with the inclusion of an API and a small simple front-end.',
         image: '/images/projects/project.jpg',
         url: 'https://weatherstation.sharky.live',
         github: 'https://github.com/joemay96/swh_weatherstation',
@@ -44,7 +44,7 @@ const projects: Array<Project> = [
     },
     {
         title: 'Chess AI',
-        text: 'I build a Chess AI, based on AlphaZero. The main idea was to bring human behavior into a chess engine that will inmitate a speical player.',
+        slug: 'I build a Chess AI, based on AlphaZero. The main idea was to bring human behavior into a chess engine that will inmitate a speical player.',
         image: '/images/projects/tech.jpg',
         url: 'https://chess.sharky.live',
         github: 'https://github.com/joemay96/chess_ai',
@@ -77,6 +77,7 @@ const projects: Array<Project> = [
                         title={project.title}
                         image={project.image}
                         link={project.link}
+                        slug={project.slug}
                     />
                 </div>
             ))

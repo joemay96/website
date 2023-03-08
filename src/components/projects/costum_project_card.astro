@@ -1,7 +1,7 @@
 ---
 export interface Props {
     title: string;
-    // text: string;
+    slug?: string;
     image: string;
     // url: string;
     // github: string;
@@ -10,11 +10,18 @@ export interface Props {
     // imagePositions: [number]
 }
 //! Alles was in mit ="" ausgefüllt ist kann in die blog site rein
-const { title, image, link } = Astro.props; // imagePositions=[]
+const { title, image, link, slug = '' } = Astro.props; // imagePositions=[]
 const blogLink = `/projects/${link}`;
+
+const imagePath = 'url(' + image + ')';
 ---
 
-<div class='screen'>
+<div
+    class='screen'
+    data-aos-delay='600'
+    data-aos-duration='1250'
+    data-aos='fade-up'
+>
     <div class='screen-image'></div>
     <div class='screen-overlay'></div>
     <div class='screen-content'>
@@ -65,13 +72,15 @@ const blogLink = `/projects/${link}`;
             </svg>
         </div>
         <div class='projectinfo'>
-            <span class='name'>{title}</span>
-            <a class='link' href={blogLink} target='_blank'>To Project</a>
+            <a class='name' href={blogLink}><span class='name'>{title}</span></a
+            >
+            <span class='slug'>{slug}</span>
+            <!-- <a class='link' href={blogLink}>@Project</a> -->
         </div>
     </div>
 </div>
 
-<style define:vars={{ image }}>
+<style define:vars={{ imagePath }}>
     /* numberPositions  */
     :root {
         --primary-screen-rgb: 30, 184, 84;
@@ -141,7 +150,7 @@ const blogLink = `/projects/${link}`;
             rgb(var(--primary-screen-rgb), 0.15),
             /* rgb(var(--primary-rgb), 0.15),
             rgb(var(--primary-rgb), 0.15) 3px, */
-                hrgb(var(--primary-screen-rgb), 0.15) 3px,
+                rgb(var(--primary-screen-rgb), 0.15) 3px,
             transparent 3px,
             transparent 9px
         );
@@ -154,16 +163,16 @@ const blogLink = `/projects/${link}`;
 
     .screen > .screen-image {
         /* Changing the Image depending on the card */
-        background-image: url('/images/screen/yosemite.jpg');
+        background-image: var(--imagePath);
         height: 100%;
         width: 100%;
         background-size: 300%; /* Zoom-In effect */
         background-position: center;
         /* Tint the image color -> muss ich mal noch schauen, ob ich das überhaupt drin haben will */
-        filter: sepia(100%) hue-rotate(115deg);
+        /* filter: sepia(20%) hue-rotate(85deg); */
         opacity: 0.83;
         /* adding animation */
-        animation: pan-image 25s linear infinite;
+        animation: pan-image 42s linear infinite alternate;
 
         position: absolute;
     }
@@ -239,34 +248,37 @@ const blogLink = `/projects/${link}`;
     .screen > .screen-content > .projectinfo > .name:before,
     .screen > .screen-content > .projectinfo > .name:after {
         content: '';
-        height: 10px;
-        width: 10px;
+        height: 5px;
+        width: 5px;
         position: absolute;
-        border: 2px solid white;
+        border: 2px solid rgb(var(--primary-screen-rgb), 0.6);
         border-radius: 2px;
+        box-shadow: 0px 0px 8px 3px white; /*rgb(var(--primary-screen-rgb), 0.6)*/
     }
 
     .screen > .screen-content > .projectinfo > .name:before {
-        top: 45%;
-        right: -1.5rem;
+        top: 50%;
+        right: -0.7rem;
     }
 
     .screen > .screen-content > .projectinfo > .name:after {
-        top: 45%;
-        left: -1.5rem;
+        top: 50%;
+        left: -0.7rem;
     }
 
-    .screen > .screen-content > .projectinfo > .link {
+    /* .screen > .screen-content > .projectinfo > .link {
         opacity: 0.8;
         font-size: 1.5rem;
         text-shadow: 0px 0px 0.5rem white;
         font-weight: 400;
         letter-spacing: 0.3rem;
         text-decoration: none;
-        /* pointer-events: none; */
+    } */
+    .screen > .screen-content > .projectinfo > .slug {
+        color: white;
     }
 
-    .screen > .screen-content > .projectinfo > .link:is(:hover, :focus) {
+    .screen > .screen-content > .projectinfo > .name:is(:hover, :focus) {
         text-decoration: underline;
     }
 
@@ -281,14 +293,14 @@ const blogLink = `/projects/${link}`;
 
     @keyframes pan-image {
         /* full picture animation */
-        /* from {
+        from {
             background-position: 0% 0%;
         }
 
         to {
             background-position: 100% 100%;
-        } */
-        0% {
+        }
+        /* 0% {
             background-position: 15% 15%;
             background-size: 200%;
         }
@@ -332,7 +344,7 @@ const blogLink = `/projects/${link}`;
         100% {
             background-position: 50% 50%;
             background-size: 120%;
-        }
+        } */
     }
 </style>
 <script>
