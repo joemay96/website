@@ -44,13 +44,29 @@ body {
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    width: 20px; /* 60px */
-    height: 20px;
-    mix-blend-mode: difference;
+    width: 25px; /* 60px */
+    height: 25px;
+    /* mix-blend-mode: difference; */
     pointer-events: none;
     user-select: none;
-    background: hsl(var(--a));
-    z-index: 101;
+    /* background: hsl(var(--a)); */
+    background: transparent;
+    border: 2px solid hsl(var(--a));
+    z-index: 12;
+
+    transition: all 0.3s ease;
+    transition-property: background, transform, text;
+    transform-origin: 75% 75%;
+}
+
+.cursor-grow {
+    transform: scale(2);
+    /* background: #000; */
+    /* border:none; */
+    /* background-image: url("/icons/cursor-arrow.svg"); */
+    /* transform: scale(1.5); */
+    color: white;
+    font-size: 0.5rem;
 }
 
 .cursor--follow {
@@ -70,9 +86,38 @@ body {
     /* border: 2px solid #fff; */
     /* background: radial-gradient(hsl(var(--p)) 20%,  hsl(var(--a)) 70%); */
     background: linear-gradient(hsl(var(--p)), hsl(var(--a)));
-    z-index: 100;
+    z-index: 11;
     /* animation: rotate 20s infinite; */
     filter: blur(51px);
+}
+
+.cursor--text {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+		border-radius: 50%;
+    pointer-events: none;
+		user-select: none;
+
+    width: fit-content;
+    height: fit-content;
+    font-size: 0.7rem;
+    color: #fff;
+    opacity: 0;
+    font-weight: bold;
+}
+
+.cursor--text-active {
+  width: fit-content;
+  height: fit-content;
+  font-size: 0.7rem;
+  color: #fff;
+  opacity: 1;
+  margin-top: 40px;
+  margin-left: 5px;
+  transition: 0.8s ease;
+  transition-property: opacity;
 }
 
 /* .cursor--follow:hover {

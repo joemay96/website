@@ -243,6 +243,9 @@ const imagePath = 'url(' + image + ')';
         position: relative;
         font-size: 3.5rem;
         font-weight: 400;
+        cursor: none;
+        border: 5px solid transparent;
+        max-width: 10ch;
     }
 
     .screen > .screen-content > .projectinfo > .name:before,
@@ -279,7 +282,13 @@ const imagePath = 'url(' + image + ')';
     }
 
     .screen > .screen-content > .projectinfo > .name:is(:hover, :focus) {
-        text-decoration: underline;
+        text-decoration: none;
+        -webkit-transition: 0.8s ease;
+        transition: 0.8s ease;
+        border-bottom: 3px solid hsl(var(--a));
+        border-top: 3px solid hsl(var(--a));
+        width: 90%;
+        /* margin-right: 9px; */
     }
 
     @keyframes pan-overlay {
@@ -357,4 +366,20 @@ const imagePath = 'url(' + image + ')';
     } else {
         r.style.setProperty('--primary-screen-rgb', '75,107,251');
     }
+
+    // cursor
+    const links = document.querySelectorAll(
+        '.screen > .screen-content > .projectinfo > .name',
+    );
+    const cursor = document.querySelector('.cursor--point');
+    links.forEach(link => {
+        link.addEventListener('mouseover', () => {
+            cursor.classList.add('cursor-grow');
+            link.classList.add('link-hovered');
+        });
+        link.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-grow');
+            link.classList.remove('link-hovered');
+        });
+    });
 </script>

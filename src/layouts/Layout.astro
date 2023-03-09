@@ -43,6 +43,7 @@ const { title, navbarColor, navbarDelay } = Astro.props;
     <body>
         <div class='cursor--point' id='cursor'></div>
         <div class='cursor--follow' id='cursor--follow'></div>
+        <div class='cursor--text' id='cursor--text'></div>
         <Navbar color={navbarColor} delay={navbarDelay} />
         <slot />
     </body>
@@ -84,6 +85,7 @@ const { title, navbarColor, navbarDelay } = Astro.props;
     const cursor_point = document.querySelector('.cursor--point');
     // const cursor_follow = document.getElementById('.cursor--follow');
     const cursor_follow = document.querySelector('.cursor--follow');
+    const cursor_text = document.querySelector('.cursor--text');
     document.body.onpointermove = e => {
         const { clientX, clientY } = e;
         cursor_point.style.left = `${clientX}px`;
@@ -95,6 +97,8 @@ const { title, navbarColor, navbarDelay } = Astro.props;
             },
             { duration: 800, fill: 'forwards' },
         );
+        cursor_text.style.left = `${clientX}px`;
+        cursor_text.style.top = `${clientY}px`;
     };
     // window.addEventListener('mousemove', e => {
     //     cursor_point.style(
