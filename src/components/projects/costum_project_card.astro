@@ -244,7 +244,7 @@ const imagePath = 'url(' + image + ')';
         font-size: 3.5rem;
         font-weight: 400;
         cursor: none;
-        border: 5px solid transparent;
+        /* border: 5px solid transparent; */
         max-width: 10ch;
     }
 
@@ -285,8 +285,8 @@ const imagePath = 'url(' + image + ')';
         text-decoration: none;
         -webkit-transition: 0.8s ease;
         transition: 0.8s ease;
-        border-bottom: 3px solid hsl(var(--a));
-        border-top: 3px solid hsl(var(--a));
+        /* border-bottom: 3px solid hsl(var(--a));
+        border-top: 3px solid hsl(var(--a)); */
         width: 90%;
         /* margin-right: 9px; */
     }
@@ -374,12 +374,12 @@ const imagePath = 'url(' + image + ')';
     const cursor = document.querySelector('.cursor--point');
     links.forEach(link => {
         link.addEventListener('mouseover', () => {
-            cursor.classList.add('cursor-grow');
-            link.classList.add('link-hovered');
+            cursor.classList.add('cursor-new-site');
+            // link.classList.add('link-hovered');
         });
         link.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor-grow');
-            link.classList.remove('link-hovered');
+            cursor.classList.remove('cursor-new-site');
+            // link.classList.remove('link-hovered');
         });
     });
 </script>
