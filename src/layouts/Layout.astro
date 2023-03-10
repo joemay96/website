@@ -78,18 +78,20 @@ const { title, navbarColor, navbarDelay } = Astro.props;
         mode === 'light' ? 'corporate' : 'forest',
     );
 </script>
+<script src='/scripts/theme.js' defer></script>
 
 <!-- Mouse cursor -->
-<script>
+<!-- TODO: export is seperate script -->
+<script is:inline>
     // const cursor_point = document.getElementById('.cursor');
-    const cursor_point = document.querySelector('.cursor--point');
+    const cursor = document.querySelector('.cursor--point');
     // const cursor_follow = document.getElementById('.cursor--follow');
     const cursor_follow = document.querySelector('.cursor--follow');
-    const cursor_text = document.querySelector('.cursor--text');
+    const cursorText = document.querySelector('.cursor--text');
     document.body.onpointermove = e => {
         const { clientX, clientY } = e;
-        cursor_point.style.left = `${clientX}px`;
-        cursor_point.style.top = `${clientY}px`;
+        cursor.style.left = `${clientX}px`;
+        cursor.style.top = `${clientY}px`;
         cursor_follow.animate(
             {
                 left: `${clientX}px`,
@@ -97,8 +99,8 @@ const { title, navbarColor, navbarDelay } = Astro.props;
             },
             { duration: 800, fill: 'forwards' },
         );
-        cursor_text.style.left = `${clientX}px`;
-        cursor_text.style.top = `${clientY}px`;
+        cursorText.style.left = `${clientX}px`;
+        cursorText.style.top = `${clientY}px`;
     };
     // window.addEventListener('mousemove', e => {
     //     cursor_point.style(

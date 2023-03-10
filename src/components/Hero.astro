@@ -1,173 +1,238 @@
 ---
-import HeroCard from "./HeroCard.astro"
+import HeroCard from './HeroCard.astro';
 export interface Props {
-	title: string;
-	text: string;
+    title: string;
+    text: string;
 }
 const { title, text } = Astro.props;
 ---
 
-<div id="hero" class="hero parallax hero-bg-1 min-h-screen">
-    <div class="hero-overlay bg-opacity-60"></div>
-    <div class="hero-content text-center text-neutral-content">
-      <div class="max-w-md">
-        <HeroCard title={title} text={text} btn_text="Browse projects"/>
-        <!-- <h1 class="mb-5 text-5xl font-bold">{title}</h1>
+<div id='hero' class='hero parallax hero-bg-1 min-h-screen'>
+    <div class='hero-overlay bg-opacity-60'></div>
+    <div class='hero-content text-center text-neutral-content'>
+        <div class='max-w-md'>
+            <HeroCard title={title} text={text} btn_text='Browse projects' />
+            <!-- <h1 class="mb-5 text-5xl font-bold">{title}</h1>
         <p class="mb-5">{text}</p> -->
-        <!-- <button class="btn btn-primary">Get Started</button> -->
-      </div>
+            <!-- <button class="btn btn-primary">Get Started</button> -->
+        </div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 hero-arrow stroke-white">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-aos-once="true" data-aos-delay="2000" data-aos-duration="300" data-aos="fade-in" />
+    <svg
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke-width='1.5'
+        stroke='currentColor'
+        class='w-10 h-10 hero-arrow stroke-white'
+    >
+        <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+            data-aos-once='true'
+            data-aos-delay='2000'
+            data-aos-duration='300'
+            data-aos='fade-in'></path>
     </svg>
-    <button class="btn btn-ghost btn-hero-left">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" data-aos-once="true" data-aos-delay="2000" data-aos-duration="300" data-aos="fade-right" />
-      </svg>      
+    <button class='btn btn-ghost btn-hero-left cursor-none'>
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='1.5'
+            stroke='currentColor'
+            class='w-6 h-6 stroke-gray-500'
+        >
+            <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M15.75 19.5L8.25 12l7.5-7.5'
+                data-aos-once='true'
+                data-aos-delay='2000'
+                data-aos-duration='300'
+                data-aos='fade-right'></path>
+        </svg>
     </button>
-    <button class="btn btn-ghost btn-hero-right">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" data-aos-once="true" data-aos-delay="2000" data-aos-duration="300" data-aos="fade-left"/>
-      </svg>      
+    <button class='btn btn-ghost btn-hero-right cursor-none'>
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='1.5'
+            stroke='currentColor'
+            class='w-6 h-6 stroke-gray-500'
+        >
+            <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M8.25 4.5l7.5 7.5-7.5 7.5'
+                data-aos-once='true'
+                data-aos-delay='2000'
+                data-aos-duration='300'
+                data-aos='fade-left'></path>
+        </svg>
     </button>
 </div>
 <style is:global>
-.hero-bg-1 {
-    background-image: url('/images/hero-bg/bg1.jpg');
-		background-color: hsl(var(--b1));
-    animation: fadeImage 2s once;
-}
-.hero-bg-2 {
-    background-image: url('/images/hero-bg/bg2.jpg');
-		background-color: hsl(var(--b1));
-    animation: fadeImage 2s once;
-}
-.hero-bg-3 {
-    background-image: url('/images/hero-bg/bg3.jpg');
-		background-color: hsl(var(--b1));
-    animation: fadeImage 2s once;
-}
-.hero-bg-4 {
-    background-image: url('/images/hero-bg/bg4.jpg');
-		background-color: hsl(var(--b1));
-    animation: fadeImage 2s once;
-}
+    .hero-bg-1 {
+        background-image: url('/images/hero-bg/bg1.jpg');
+        background-color: hsl(var(--b1));
+        animation: fadeImage 2s once;
+    }
+    .hero-bg-2 {
+        background-image: url('/images/hero-bg/bg2.jpg');
+        background-color: hsl(var(--b1));
+        animation: fadeImage 2s once;
+    }
+    .hero-bg-3 {
+        background-image: url('/images/hero-bg/bg3.jpg');
+        background-color: hsl(var(--b1));
+        animation: fadeImage 2s once;
+    }
+    .hero-bg-4 {
+        background-image: url('/images/hero-bg/bg4.jpg');
+        background-color: hsl(var(--b1));
+        animation: fadeImage 2s once;
+    }
 
-.hero-arrow {
-  position: absolute;
-  bottom: 2rem;
-  left: 50vw - 0.75rem;
-  stroke-width: 3;
-  animation-name: hero-arrow;
-  animation-duration: 2.5s;
-  animation-delay: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
+    .hero-arrow {
+        position: absolute;
+        bottom: 2rem;
+        left: 50vw - 0.75rem;
+        stroke-width: 3;
+        animation-name: hero-arrow;
+        animation-duration: 2.5s;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
 
-.btn-hero-left {
-  position: absolute;
-  top: 50vw - 0.75rem;
-  left: 1rem;
-  padding: 0 0.5rem;
-}
+    .btn-hero-left {
+        position: absolute;
+        top: 50vw - 0.75rem;
+        left: 1rem;
+        padding: 0 0.5rem;
+    }
 
-.btn-hero-right {
-  position: absolute;
-  top: 50vw - 0.75rem;
-  right: 1rem;
-  padding: 0 0.5rem;
-}
+    .btn-hero-right {
+        position: absolute;
+        top: 50vw - 0.75rem;
+        right: 1rem;
+        padding: 0 0.5rem;
+    }
 
-.btn-hero-left:hover {
-  animation-name: left-arrow;
-  animation-duration: 1.2s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-}
+    .btn-hero-left:hover {
+        animation-name: left-arrow;
+        animation-duration: 1.2s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+    }
 
-.btn-hero-right:hover {
-  animation-name: right-arrow;
-  animation-duration: 1.2s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-}
+    .btn-hero-right:hover {
+        animation-name: right-arrow;
+        animation-duration: 1.2s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+    }
 
-@keyframes hero-arrow {
-  0% {
-    bottom: 2rem;
-  }
-  45% {
-    bottom: 3rem;
-  }
-  90% {
-    bottom: 2rem;
-  }
-}
+    @keyframes hero-arrow {
+        0% {
+            bottom: 2rem;
+        }
+        45% {
+            bottom: 3rem;
+        }
+        90% {
+            bottom: 2rem;
+        }
+    }
 
-@keyframes left-arrow {
-  0% {
-    left: 1rem;
-  }
-  45% {
-    left: 0.7rem;
-  }
-  90% {
-    left: 1rem;
-  }
-}
+    @keyframes left-arrow {
+        0% {
+            left: 1rem;
+        }
+        45% {
+            left: 0.7rem;
+        }
+        90% {
+            left: 1rem;
+        }
+    }
 
-@keyframes right-arrow {
-  0% {
-    right: 1rem;
-  }
-  45% {
-    right: 0.7rem;
-  }
-  90% {
-    right: 1rem;
-  }
-}
+    @keyframes right-arrow {
+        0% {
+            right: 1rem;
+        }
+        45% {
+            right: 0.7rem;
+        }
+        90% {
+            right: 1rem;
+        }
+    }
 
-@keyframes fadeImages {
-  0% { opacity: 0 }
-  100% { opacity: 100 }
-}
+    @keyframes fadeImages {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 100;
+        }
+    }
 
-.parallax {
-  background-attachment: fixed;
-  /* background-position: center;
+    .parallax {
+        background-attachment: fixed;
+        /* background-position: center;
   background-repeat: no-repeat;
   background-size: cover; */
-}
+    }
 </style>
 
-<script type="text/javascript">
-  // const bgImages = ["/images/hero-bg/bg1.jpg", "/images/hero-bg/bg2.jpg", "/images/hero-bg/bg3.jpg", "/images/hero-bg/bg4.jpg"];
-  const bgImages = ["hero-bg-1", "hero-bg-2", "hero-bg-3", "hero-bg-4"];
+<script type='text/javascript'>
+    // const bgImages = ["/images/hero-bg/bg1.jpg", "/images/hero-bg/bg2.jpg", "/images/hero-bg/bg3.jpg", "/images/hero-bg/bg4.jpg"];
+    const bgImages = ['hero-bg-1', 'hero-bg-2', 'hero-bg-3', 'hero-bg-4'];
 
-  let slideNumber = 0;
-  const btns = document.querySelectorAll("button");
-  let heroBg = document.getElementById("hero");
+    let slideNumber = 0;
+    const btns = document.querySelectorAll('button');
+    let heroBg = document.getElementById('hero');
 
-  const changeSlideNumber = (add) => {
-    slideNumber = (slideNumber + add) % bgImages.length;
-    if(slideNumber < 0) {
-      slideNumber += bgImages.length;
-    }
-  }
+    const changeSlideNumber = add => {
+        slideNumber = (slideNumber + add) % bgImages.length;
+        if (slideNumber < 0) {
+            slideNumber += bgImages.length;
+        }
+    };
 
-  // left Btn
-  btns[0].addEventListener("click", () => {
-    let oldSlideNumber = slideNumber;
-    changeSlideNumber(-1);
-    // TODO: muss mit dem austausch der Bilder irgendwie besser gehen! 
-    heroBg.classList.replace(bgImages[oldSlideNumber], bgImages[slideNumber])
-  });
-  //right Btn
-  btns[1].addEventListener("click", () => {
-    let oldSlideNumber = slideNumber;
-    changeSlideNumber(+1);
-    heroBg.classList.replace(bgImages[oldSlideNumber], bgImages[slideNumber])
-  });
+    // left Btn
+    btns[0].addEventListener('click', () => {
+        let oldSlideNumber = slideNumber;
+        changeSlideNumber(-1);
+        // TODO: muss mit dem austausch der Bilder irgendwie besser gehen!
+        heroBg.classList.replace(
+            bgImages[oldSlideNumber],
+            bgImages[slideNumber],
+        );
+    });
+    //right Btn
+    btns[1].addEventListener('click', () => {
+        let oldSlideNumber = slideNumber;
+        changeSlideNumber(+1);
+        heroBg.classList.replace(
+            bgImages[oldSlideNumber],
+            bgImages[slideNumber],
+        );
+    });
+
+    btns[0].addEventListener('mouseover', () => {
+        cursor.classList.add('cursor-grow');
+    });
+    btns[0].addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-grow');
+    });
+    btns[1].addEventListener('mouseover', () => {
+        cursor.classList.add('cursor-grow');
+    });
+    btns[1].addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-grow');
+    });
 </script>
