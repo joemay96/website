@@ -24,6 +24,6 @@ Meine Website und Dinge zum einbauen
 ## Einbauen
 Einbauen einer [robots.txt](https://github.com/alextim/astro-lib/tree/main/packages/astro-robots-txt#readme). Ebenso möchte ich mich ein bisschen mit dem [SEO](https://github.com/jonasmerlin/astro-seo#readme) plugin von astro auseinandersetzen.
 
-### Page Transitions
+### Page Transitionsg
 
 - [ ] Verwenden von Page Transitions mit [barba.js](https://barba.js.org/docs/getstarted/basic-transition/) und [anime.js](https://animejs.com/)
