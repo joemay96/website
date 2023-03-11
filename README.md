@@ -18,8 +18,12 @@ Meine Website und Dinge zum einbauen
 - [ ] create single sites for the project, when pressed on the card for more information like the tools that is was build with
 
 - [x] Mouse Motion. Vielleicht möchte ich [das](https://blog.hubspot.com/website/animated-cursor) Section 4 einbauen.
-- [ ] Eigentlich was cooles eingebaut, aber benötige noch Fokus auf den Text und Link event Effekts
+- [x] Eigentlich was cooles eingebaut, aber benötige noch Fokus auf den Text und Link event Effekts
 - [ ] Ich könnte mir ein solches [Overlay](https://codepen.io/sukratti-jain/pen/wLOqdO/) für Bilder vorstellen, wenn sie reingeladen werden. Oder eher das [hier](https://www.youtube.com/watch?v=jMVhxBB3l0w)
 
 ## Einbauen
 Einbauen einer [robots.txt](https://github.com/alextim/astro-lib/tree/main/packages/astro-robots-txt#readme). Ebenso möchte ich mich ein bisschen mit dem [SEO](https://github.com/jonasmerlin/astro-seo#readme) plugin von astro auseinandersetzen.
+
+### Page Transitions
+
+- [ ] Verwenden von Page Transitions mit [barba.js](https://barba.js.org/docs/getstarted/basic-transition/) und [anime.js](https://animejs.com/)
