@@ -100,11 +100,12 @@ const imagePath = 'url(' + image + ')';
     } */
 
     .screen {
-        width: 500px;
+        width: 100%;
         display: flex;
         /* border: 3px solid rgb(var(--primary-rgb), 0.8);  old*/
         border: 3px solid rgb(var(--primary-screen-rgb), 0.8);
-        aspect-ratio: 10 / 16;
+        aspect-ratio: 12 / 10;
+        /* aspect-ratio: 10 / 16; */
         /* aspect-ratio: 16 / 9; */
         border-radius: 1rem;
         /* background-color: rgb(var(--primary-rgb), 0.15); old */
@@ -185,11 +186,11 @@ const imagePath = 'url(' + image + ')';
         align-items: center;
         justify-content: flex-end;
         flex-grow: 1;
-        gap: 4rem;
+        gap: 2.25rem;
         position: relative;
         z-index: 3;
         margin: 1rem;
-        padding-bottom: 6rem;
+        padding-bottom: 4rem;
         /* border: 1px solid rgb(var(--primary-rgb) / 50%); */
         border: 1px solid rgb(var(--primary-screen-rgb), 0.5);
         border-radius: 0.6rem;
@@ -245,7 +246,7 @@ const imagePath = 'url(' + image + ')';
         font-weight: 400;
         cursor: none;
         /* border: 5px solid transparent; */
-        max-width: 10ch;
+        max-width: 18ch;
     }
 
     .screen > .screen-content > .projectinfo > .name:before,
@@ -282,12 +283,12 @@ const imagePath = 'url(' + image + ')';
     }
 
     .screen > .screen-content > .projectinfo > .name:is(:hover, :focus) {
-        text-decoration: none;
+        text-decoration: underline;
         -webkit-transition: 0.8s ease;
         transition: 0.8s ease;
         /* border-bottom: 3px solid hsl(var(--a));
         border-top: 3px solid hsl(var(--a)); */
-        width: 90%;
+        /* width: 90%; */
         /* margin-right: 9px; */
     }
 
