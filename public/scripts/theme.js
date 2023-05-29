@@ -48,10 +48,12 @@ function changeTheme() {
         --primary-forest: 30,184,84;
         --primary-corporate: 75,107,251;
         --primary-garden: 92,127,103; 
+
+		rgb(58, 75, 244)
     */
 	if (mode === "light") {
-		r.style.setProperty("--primary-screen-rgb", "30,184,84");
+		r.style.setProperty("--primary-screen-rgb", "45, 110, 242");
 	} else {
-		r.style.setProperty("--primary-screen-rgb", "75,107,251");
+		r.style.setProperty("--primary-screen-rgb", "45, 110, 242");
 	}
 }

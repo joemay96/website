@@ -101,9 +101,10 @@ const imagePath = 'url(' + image + ')';
 
     .screen {
         width: 100%;
+        max-width: 650px;
         display: flex;
         /* border: 3px solid rgb(var(--primary-rgb), 0.8);  old*/
-        border: 3px solid rgb(var(--primary-screen-rgb), 0.8);
+        border: 4px solid rgb(var(--primary-screen-rgb), 0.8);
         aspect-ratio: 12 / 10;
         /* aspect-ratio: 10 / 16; */
         /* aspect-ratio: 16 / 9; */
@@ -280,6 +281,8 @@ const imagePath = 'url(' + image + ')';
     } */
     .screen > .screen-content > .projectinfo > .slug {
         color: white;
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
 
     .screen > .screen-content > .projectinfo > .name:is(:hover, :focus) {
@@ -356,14 +359,25 @@ const imagePath = 'url(' + image + ')';
             background-size: 120%;
         } */
     }
+
+    @media screen and (max-width: 768px) {
+        .screen {
+            aspect-ratio: 9/12;
+            /* height: 300px; */
+        }
+    }
+
 </style>
 <script>
     // Theming
     const mode = localStorage.getItem('mode');
     const r = document.querySelector(':root');
 
+    //! Important when changing card style
+    // 58, 75, 244
+    // 30,184,84
     if (mode === 'dark') {
-        r.style.setProperty('--primary-screen-rgb', '30,184,84');
+        r.style.setProperty('--primary-screen-rgb', '58, 116, 242');
     } else {
         r.style.setProperty('--primary-screen-rgb', '75,107,251');
     }

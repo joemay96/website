@@ -14,7 +14,7 @@ interface Project {
 const projects: Array<Project> = [
     {
         title: 'Awesome CV',
-        slug: 'Awesome CV is a plattform w',
+        slug: 'Awesome CV is a plattform where you can create your cv with templates, import CVs from other websites, manage your CVs and share them with individual links, so that you don\'t have to send emails all the time with your personal info',
         image: '/images/projects/game.jpg',
         link: 'awesomecv',
     },
@@ -57,7 +57,7 @@ const projects: Array<Project> = [
         </h1>
         {
             projects.map(project => (
-                <div class='py-2 w-2/5 flex align-center justify-center'>
+                <div class='max-sm:py-4 max-md:py-8 py-12 flex align-center justify-center max-sm:px-8 px-20'>
                     <ProjectCard
                         title={project.title}
                         image={project.image}
