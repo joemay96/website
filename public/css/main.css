@@ -67,7 +67,7 @@ body {
     font-size: 0.5rem;
 
     background: transparent;
-    border: 2px solid hsl(var(--sf));
+    border: 2px solid hsl(var(--af));
     border-radius: 50%;
 }
 
