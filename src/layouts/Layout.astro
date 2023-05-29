@@ -65,12 +65,12 @@ const { title, navbarColor, navbarDelay } = Astro.props;
         return 'light';
     })();
 
+    // ! THEME CHANGE
     if (mode === 'light') {
         document.documentElement.classList.remove('dark');
         document.documentElement.setAttribute('data-theme', 'emerald');
     } else {
         document.documentElement.classList.add('dark');
-        // ! THEME CHANGE
         document.documentElement.setAttribute('data-theme', 'night');
     }
     window.localStorage.setItem('mode', mode);
