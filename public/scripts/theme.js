@@ -1,5 +1,6 @@
 const getTheme = () => {
-	return localStorage.getItem("theme") ?? "corporate";
+	//! THEME LIGHT CHANGE
+	return localStorage.getItem("theme") ?? "emerald";
 };
 
 const setTheme = (newTheme) => {
@@ -26,9 +27,10 @@ function changeTheme() {
 	setMode(toggledMode);
 	// change theme
 	if (toggledMode === "dark") {
-		setTheme("forest");
+		//! THEME CHANGE 
+		setTheme("night");
 	} else {
-		setTheme("corporate");
+		setTheme("emerald");
 	}
 	document.documentElement.setAttribute("data-theme", getTheme());
 	// change button

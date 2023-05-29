@@ -44,16 +44,16 @@ body {
     top: 50%;
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
-    border-radius: 35%;
-    width: 20px; /* 60px */
-    height: 20px;
+    border-radius: 45%;
+    width: 27px; /* 60px */
+    height: 27px;
     /* mix-blend-mode: difference; */
     pointer-events: none;
     user-select: none;
     /* background: hsl(var(--a)); */
     /* background: transparent; */
-    background: radial-gradient(hsl(var(--p)) 0%, hsl(var(--a)) 85%);
-    border: 1px solid hsl(var(--a));
+    background: radial-gradient(hsl(var(--pf)) 0%, hsl(var(--sf)) 90%);
+    border: 0px solid hsl(var(--sf));
     z-index: 12;
 
     transition: all 0.3s ease;
@@ -67,7 +67,7 @@ body {
     font-size: 0.5rem;
 
     background: transparent;
-    border: 3px solid hsl(var(--a));
+    border: 2px solid hsl(var(--sf));
     border-radius: 50%;
 }
 
@@ -95,8 +95,8 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     /* mix-blend-mode: screen; */
     /* mix-blend-mode: hue; Das hat was, muss dann aber wahrscheinlich viel größer sein! */
     /* mix-blend-mode: screen; */
@@ -108,7 +108,7 @@ body {
     background: linear-gradient(hsl(var(--p)), hsl(var(--a)));
     z-index: 11;
     /* animation: rotate 20s infinite; */
-    filter: blur(601px);
+    filter: blur(701px);
 }
 
 .cursor--text {
@@ -134,7 +134,7 @@ body {
   font-size: 0.7rem;
   color: #fff;
   opacity: 1;
-  margin-top: 45px;
+  margin-top: 50px;
   margin-left: 5px;
   transition: 0.8s ease;
   transition-property: opacity;

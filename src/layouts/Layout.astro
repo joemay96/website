@@ -67,15 +67,17 @@ const { title, navbarColor, navbarDelay } = Astro.props;
 
     if (mode === 'light') {
         document.documentElement.classList.remove('dark');
-        document.documentElement.setAttribute('data-theme', 'corporate');
+        document.documentElement.setAttribute('data-theme', 'emerald');
     } else {
         document.documentElement.classList.add('dark');
-        document.documentElement.setAttribute('data-theme', 'forest');
+        // ! THEME CHANGE
+        document.documentElement.setAttribute('data-theme', 'night');
     }
     window.localStorage.setItem('mode', mode);
     window.localStorage.setItem(
         'theme',
-        mode === 'light' ? 'corporate' : 'forest',
+        // ! THEME CHANGE
+        mode === 'light' ? 'emerald' : 'night',
     );
 </script>
 <script src='/scripts/theme.js' defer></script>
@@ -97,7 +99,7 @@ const { title, navbarColor, navbarDelay } = Astro.props;
                 left: `${clientX}px`,
                 top: `${clientY}px`,
             },
-            { duration: 8000, fill: 'forwards' },
+            { duration: 3500, fill: 'forwards' },
         );
         cursorText.style.left = `${clientX}px`;
         cursorText.style.top = `${clientY}px`;
