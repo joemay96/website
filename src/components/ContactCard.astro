@@ -1,0 +1,36 @@
+---
+import { Image } from '@astrojs/image/components';
+// import avatar from "url(/avatar.svg)";
+export interface Props {
+	title: string;
+	text: string;
+}
+
+const { title, text } = Astro.props;
+---
+<div 
+  data-aos-delay='500'
+  data-aos-duration='800'
+  data-aos='fade-up'
+>
+  <figure class="avatar-img select-none">
+    <Image src={import("../../public/cat.svg")} alt="Avatar" width={650} class="select-none"/>
+  </figure>
+  <div class="card bg-primary rounded-lg pointer-events-none">
+      <div class="card-body items-center text-center">
+        <h2 class='pb-8 text-4xl font-bold text-primary-content'>{title}</h2>
+        <p class="select-none text-primary-content">{text}</p>
+      </div>
+  </div>
+</div>
+
+<style>
+.avatar-img {
+    margin-bottom: -1.8rem;
+}
+h2 {
+        background: linear-gradient(to right, hsl(var(--a)), hsl(var(--s)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>

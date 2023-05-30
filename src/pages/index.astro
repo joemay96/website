@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/projects/costum_project_card.astro';
 import Hero from '../components/Hero.astro';
+import Contact from '../components/Contact.astro';
 
 interface Project {
     title: string;
@@ -66,6 +67,7 @@ const projects: Array<Project> = [
                 </div>
             ))
         }
+        <Contact />
     </main>
 </Layout>
 
