@@ -11,7 +11,7 @@ const { private_repo, url, github = '#' } = Astro.props;
 
 <!-- glass vs bg-primary text-primary-content -->
 <div
-    class='card bg-primary text-primary-content shadow-xl w-2/3'
+    class='card glass shadow-xl w-2/3'
     data-aos-delay='450'
     data-aos-duration='850'
     data-aos='fade-left'
@@ -59,14 +59,15 @@ const { private_repo, url, github = '#' } = Astro.props;
 </style>
 
 <script>
-    // Theming
-    // const mode = localStorage.getItem('mode');
-    // const r = document.querySelector(':root');
-
-    // console.log(mode);
-    // if (mode === 'dark') {
-    //     r.style.setProperty('--project-article-card-color', '75,107,251');
-    // } else {
-    //     r.style.setProperty('--project-article-card-color', '30,184,84');
-    // }
+    // cursor
+    const links = document.querySelectorAll('.card-actions');
+    const cursor = document.querySelector('.cursor--point');
+    links.forEach(link => {
+        link.addEventListener('mouseover', () => {
+            cursor.classList.add('cursor-new-site');
+        });
+        link.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-new-site');
+        });
+    });
 </script>

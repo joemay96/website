@@ -74,7 +74,6 @@ body {
 .cursor-new-site {
   border-radius: 5px;
   /* transform: translate(-50%, -50%); */
-  
 
   background: transparent;
   border: solid hsl(var(--af)); /* radial-gradient(hsl(var(--pf)) 0%, hsl(var(--sf)) 90%) */
