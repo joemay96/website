@@ -8,11 +8,12 @@ export interface props {
     delay?: number;
 }
 
-const { color, delay = 2000 } = Astro.props;
+const { color = "bg-neutral", delay = 2000 } = Astro.props;
 ---
 
+<!-- Include color of the navbar bg-transparent -->
 <div
-    class='navbar bg-transparent'
+    class=`navbar ${color}`
     data-aos='fade-down'
     data-aos-once='true'
     data-aos-delay={delay}

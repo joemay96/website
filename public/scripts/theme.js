@@ -49,18 +49,20 @@ function changeTheme() {
         --primary-corporate: 75,107,251;
         --primary-garden: 92,127,103; 
     */
-	if (mode === "light") {
-		r.style.setProperty("--primary-screen-rgb", "45, 110, 242");
-	} else {
-		r.style.setProperty("--primary-screen-rgb", "45, 110, 242");
-	}
+//    ! Not needed anymore
+	// if (mode === "light") {
+	// 	r.style.setProperty("--primary-screen-rgb", "45, 110, 242");
+	// } else {
+	// 	r.style.setProperty("--primary-screen-rgb", "45, 110, 242");
+	// }
 
-	const mainPageContent = document.querySelector('main') || null;
-    if (mode === 'dark') {
-        mainPageContent?.classList.remove("bg-light");
-        mainPageContent?.classList.add("bg-dark");
+	const BODY = document.querySelector('body');
+
+    if (toggledMode === 'dark') {
+		BODY.classList.add("bg-dark");
+		BODY.classList.remove("bg-light");
     } else {
-        mainPageContent?.classList.remove("bg-dark");
-        mainPageContent?.classList.add("bg-light");
+		BODY.classList.remove("bg-dark");
+		BODY.classList.add("bg-light");
     }
 }
