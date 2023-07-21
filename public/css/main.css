@@ -37,8 +37,8 @@ body {
 }
 
 
-/* Cursor */
-.cursor--point {
+/* Cursor - not used at the moment */
+.cursor--point-old {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -47,27 +47,51 @@ body {
     border-radius: 45%;
     width: 27px; /* 60px */
     height: 27px;
-    /* mix-blend-mode: difference; */
     pointer-events: none;
     user-select: none;
-    /* background: hsl(var(--a)); */
-    /* background: transparent; */
     background: radial-gradient(hsl(var(--pf)) 0%, hsl(var(--sf)) 90%);
     border: 0px solid hsl(var(--sf));
     z-index: 12;
-
+    
     transition: all 0.3s ease;
     transition-property: border, background, transform, text;
     transform-origin: 75% 75%;
+    /* background: transparent; */
+    /* background: hsl(var(--a)); */
+    /* mix-blend-mode: difference; */
+}
+
+.cursor--point {
+  position: fixed; 
+  left: 50%;
+  top: 50%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 25%;
+  background: transparent;
+  border: 5px solid hsl(var(--sf));
+  z-index: 12;
+  pointer-events: none;
+
+  transition: all 0.3s ease;
+  transition-property: border, background, transform, text;
+  transform-origin: 100% 100%;
+}
+
+.cursor--small {
+  width: 30px;
+  height: 30px;
 }
 
 .cursor-grow {
-    transform: scale(2);
+    transform: scale(1.5) translate(-25%, -25%);
     color: white;
     font-size: 0.5rem;
 
     background: transparent;
-    border: 2px solid hsl(var(--af));
+    border: 3px solid hsl(var(--af));
     border-radius: 50%;
 }
 
@@ -80,11 +104,11 @@ body {
   border-width: 0 7px 7px 0;
   display: inline-block;
   padding: 3px;
-  
+  transform-origin: 50% 50%;
   transform: rotate(-45deg) scale(1.5);
   -webkit-transform: rotate(-45deg);
   transition: all 0.3s ease;
-  transition-property: rotate, background, transform, border;
+  transition-property: rotate, border, background, transform;
 
   /* animation-name: link-to-new-site;
   animation-duration: 0.6s;
@@ -137,8 +161,8 @@ body {
   font-size: 0.7rem;
   color: #fff;
   opacity: 1;
-  margin-top: 50px;
-  margin-left: 5px;
+  margin-top: 37px;
+  margin-left: -5px;
   transition: 0.8s ease;
   transition-property: opacity;
 }

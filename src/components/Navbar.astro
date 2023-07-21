@@ -21,7 +21,7 @@ const { color = "bg-base-300", delay = 2000 } = Astro.props;
 >
     <!-- TODO: bg-neutral on project page -->
     <span class='flex-1'>
-        <a href='/' class='cursor-none px-4' id='home'>
+        <a href='/' class='cursor-none px-4 pl-14' id='home'>
             <!-- btn btn-ghost normal-case text-xl cursor-none -->
             <Image
                 src={import('../../public/logo_dark.svg')}
@@ -33,7 +33,7 @@ const { color = "bg-base-300", delay = 2000 } = Astro.props;
     </span>
     <div class='flex-none'>
         <SocialLinks />
-        <div class='pl-2 md:pl-8 mt-2 lg:pr-4'>
+        <div class='pl-2 md:pl-8 mt-2 lg:pr-14'>
             <ThemeSwitcher />
         </div>
     </div>

@@ -6,9 +6,10 @@ export interface Props {
     title: string;
     navbarColor?: string;
     navbarDelay?: number;
+    cursorSmall?: boolean;
 }
 
-const { title, navbarColor, navbarDelay } = Astro.props;
+const { title, navbarColor, navbarDelay,cursorSmall=false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -37,7 +38,7 @@ const { title, navbarColor, navbarDelay } = Astro.props;
     </head>
     <!-- TODO: change acording to the current selected theme -> JS -->
     <body class="bg-dark">
-        <div class='cursor--point' id='cursor'></div>
+        <div class=`${cursorSmall ? "cursor--point cursor--small" : "cursor--point"}` id='cursor'></div>
         <div class='cursor--follow' id='cursor--follow'></div>
         <div class='cursor--text' id='cursor--text'></div>
         <Navbar color={navbarColor} delay={navbarDelay} />
