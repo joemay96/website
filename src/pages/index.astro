@@ -55,18 +55,20 @@ const projects: Array<Project> = [
         >
             Here are some of my <span>Projects</span>
         </h1>
+        <div class="flex flex-row flex-wrap">
         {
-            projects.map(project => (
-                <div class='max-sm:py-4 max-md:py-8 py-12 flex align-center justify-center max-sm:px-8 px-20'>
-                    <ProjectCard
+                projects.map(project => (
+                    <div class='max-xl:basis-full basis-6/12 max-sm:py-4 max-md:py-8 py-12 flex align-center justify-center max-sm:px-8 px-20'>
+                        <ProjectCard
                         title={project.title}
                         image={project.image}
                         link={project.link}
                         slug={project.slug}
                     />
-                </div>
-            ))
-        }
+                    </div>
+                ))
+            }
+        </div>
         <Contact />
     </main>
 </Layout>
