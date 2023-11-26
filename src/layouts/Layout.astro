@@ -7,9 +7,10 @@ export interface Props {
     navbarColor?: string;
     navbarDelay?: number;
     cursorSmall?: boolean;
+    navbarSite?: string;
 }
 
-const { title, navbarColor, navbarDelay,cursorSmall=false } = Astro.props;
+const { title, navbarColor, navbarDelay,cursorSmall=false,navbarSite="" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -41,7 +42,7 @@ const { title, navbarColor, navbarDelay,cursorSmall=false } = Astro.props;
         <div class=`${cursorSmall ? "cursor--point cursor--small" : "cursor--point"}` id='cursor'></div>
         <div class='cursor--follow' id='cursor--follow'></div>
         <div class='cursor--text' id='cursor--text'></div>
-        <Navbar color={navbarColor} delay={navbarDelay} />
+        <Navbar color={navbarColor} delay={navbarDelay} site={navbarSite} />
         <slot />
     </body>
     <Footer />

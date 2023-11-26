@@ -6,14 +6,15 @@ import SocialLinks from './SocialLinks.astro';
 export interface props {
     color?: string;
     delay?: number;
+    site?: string;
 }
 
-const { color = "bg-base-300", delay = 2000 } = Astro.props;
+const { color = "bg-base-300", delay = 2000, site="" } = Astro.props;
 ---
 
 <!-- Include color of the navbar bg-transparent -->
 <div
-    class=`navbar ${color} text-primary-content`
+    class=`navbar ${color} text-primary-content z-50`
     data-aos='fade-down'
     data-aos-once='true'
     data-aos-delay={delay}
@@ -22,6 +23,10 @@ const { color = "bg-base-300", delay = 2000 } = Astro.props;
     <!-- TODO: bg-neutral on project page -->
     <span class='flex-1'>
         <a href='/' class='cursor-none px-4 pl-14' id='home'>
+            <!--! IF SITE != HOME rückpfeil anzeigen -->
+            {site=="home" ? <></> : 
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="text-primary"><path fill="currentColor" d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.425 12q0-.2.063-.375T4.7 11.3l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12q0 .425-.288.713T19 13H7.825Z"/></svg>
+        }
             <!-- btn btn-ghost normal-case text-xl cursor-none -->
             <!-- <Image
                 src={import('../../public/logo_dark.svg')}
@@ -41,7 +46,7 @@ const { color = "bg-base-300", delay = 2000 } = Astro.props;
 
 <style>
     .navbar {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
     }
