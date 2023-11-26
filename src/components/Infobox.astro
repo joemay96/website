@@ -1,0 +1,33 @@
+---
+import { Image } from '@astrojs/image/components';
+---
+
+<div class="card rounded-lg xl:card-side bg-base-100 shadow-xl w-10/12 md:w-5/12 mb-28 mt-14" data-aos-delay='500'
+	data-aos-duration='800'
+	data-aos='fade-down' id="info">
+	<!-- <figure class="max-h-img">
+		<Image src={import("../../public/images/me2.jpg")} alt="Me" width={1536} />
+	</figure> -->
+  		<div class="card-body items-center text-center">
+    		<h2 class='pb-8 text-4xl font-bold text-primary-content heading-gradient'>About Me</h2>
+    		<p class="">
+				I'm a CS student, generally interested in a lot of stuff and easily motivated to learn something new. Currently i'm very interested in the fields of bioinformatics, machine learning, medical imaging and just algorithms. Have a look around and check out my projects :)
+			</p>
+		</div>
+  	</div>
+
+
+<style>
+	.width{
+		max-width: 650px;
+	}
+	.heading-gradient {
+		background: linear-gradient(to right, hsl(var(--a)), hsl(var(--s)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+	}
+
+	.max-h-img {
+		max-height: 28rem;
+	}
+</style>

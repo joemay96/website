@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/projects/costum_project_card.astro';
 import Hero from '../components/Hero.astro';
+import Infobox from "../components/Infobox.astro"
 import Contact from '../components/Contact.astro';
 
 interface Project {
@@ -39,14 +40,16 @@ const projects: Array<Project> = [
 ];
 ---
 
-<Layout title="Joe's Website" navbarColor="bg-transparent" cursor="cursor--point--small">
+<Layout title="Josef's Site" navbarColor="bg-transparent" cursor="cursor--point--small" navbarDelay="1400">
     <Hero
-        title="Joe's Website 👾"
+        title="Hey 👋"
         text="Welcome to my Website! I'm a CS student and interested in the fields of bioinformatics, machine learning, algorithms and quantum computing. Have a look and check out my projects. Just someone who is motivated about new stuff easliy!"
     />
+    <p></p>
     <main
-        class='pt-24 w-full text-center flex flex-col items-center'
+        class='pt-24 w-full text-center flex flex-col items-center mb-16'
     >
+    <Infobox />
         <h1
             class='pb-16 text-4xl font-bold'
             data-aos-delay='500'
@@ -69,7 +72,7 @@ const projects: Array<Project> = [
                 ))
             }
         </div>
-        <Contact />
+        <!-- <Contact /> -->
     </main>
 </Layout>
 

@@ -9,17 +9,24 @@ export interface Props {
 
 const { btn_text, title, text } = Astro.props;
 ---
-<figure class="avatar-img select-none" data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="1000"><Image src={import("../../public/avatar3.svg")} alt="Avatar" width={384} class="select-none"/></figure>
-<div class="card card-hero glass rounded-none rounded-b-lg -z-10 pointer-events-none" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="200"><!--bg-transparent shadow-xl card-compact -->
-    
+<!-- <figure class="avatar-img select-none" data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="1000">
+  <Image src={import("../../public/avatar3.svg")} alt="Avatar" width={384} class="select-none"/>
+</figure>
+<div class="glass rounded-none rounded-b-lg -z-10 pointer-events-none" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="200">
     <div class="card-body items-center text-center">
       <h2 class="card-title select-none">{title}</h2>
       <p class="select-none">{text}</p>
       <!-- <div class="card-actions justify-end">
         <button class="btn btn-primary">{btn_text}</button>
-      </div> -->
+      </div>
     </div>
+</div> -->
+<div class="" data-aos="fade-right" data-aos-delay="600" data-aos-duration="800">
+  <h1 class="text-4xl text-center">Hey 👋 I am <span class="text-primary font-bold">Josef</span></h1>
+  <p class="my-2 text-center text-lg">Welcome to my Website</p>
+  <a href="#info" class="btn btn-outline btn-primary">Get to know me</a>
 </div>
+
 
 <style>
 .avatar-img {
