@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 const { Content, frontmatter } = Astro.props.project;
 ---
 
-<Layout title={frontmatter.title} navbarDelay={0} cursorSmall={true} >
+<Layout title={frontmatter.title} navbarDelay={0} cursorSmall={false} >
     <div class='pt-32'></div>
     <Showcase imagePath={frontmatter.image} title={frontmatter.title} />
 

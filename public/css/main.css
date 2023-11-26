@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    cursor: none;
+    /* cursor: none; */
     /* cursor: url("/icons/cursor-arrow.svg"), auto;  */
 }
 
@@ -69,9 +69,9 @@ body {
   transform: translate(-50%, -50%);
   width: 40px;
   height: 40px;
-  border-radius: 25%;
+  border-radius: 40%;
   background: transparent;
-  border: 5px solid hsl(var(--sf));
+  border: 2px solid hsl(var(--sf));
   z-index: 12;
   pointer-events: none;
 
@@ -101,13 +101,13 @@ body {
 
   background: transparent;
   border: solid hsl(var(--af)); /* radial-gradient(hsl(var(--pf)) 0%, hsl(var(--sf)) 90%) */
-  border-width: 0 7px 7px 0;
+  border-width: 0 6px 6px 0;
   display: inline-block;
-  padding: 3px;
+  /* padding: 3px; */
   transform-origin: 50% 50%;
-  transform: rotate(-45deg) scale(1.5);
+  transform: rotate(-45deg); /* scale(1.2); */
   -webkit-transform: rotate(-45deg);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   transition-property: rotate, border, background, transform;
 
   /* animation-name: link-to-new-site;
