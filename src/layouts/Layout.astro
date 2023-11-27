@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
+import Blob from '../components/Blob.astro'
 
 export interface Props {
     title: string;
@@ -43,6 +44,7 @@ const { title, navbarColor, navbarDelay,cursorSmall=false,navbarSite="" } = Astr
         <div class='cursor--follow' id='cursor--follow'></div>
         <div class='cursor--text' id='cursor--text'></div>
         <Navbar color={navbarColor} delay={navbarDelay} site={navbarSite} />
+        <Blob />
         <slot />
     </body>
     <Footer />

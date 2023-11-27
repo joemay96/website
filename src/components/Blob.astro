@@ -1,0 +1,53 @@
+<button class="background blob" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" data-cursor-link-text='Scroll to top' id="ScrollTopBlob">
+	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="arrow"><path fill="currentColor" d="m11 7.825l-4.9 4.9q-.3.3-.7.288t-.7-.313q-.275-.3-.288-.7t.288-.7l6.6-6.6q.15-.15.325-.212T12 4.425q.2 0 .375.063t.325.212l6.6 6.6q.275.275.275.688t-.275.712q-.3.3-.713.3t-.712-.3L13 7.825V19q0 .425-.288.713T12 20q-.425 0-.713-.288T11 19V7.825Z"/></svg>
+		<!-- <img src="../../assets/discord.png" alt="scroll to top" > -->
+</button>
+  
+<style>
+	.background {
+		background-color: transparent;
+	  	border-radius: 50%;
+		border: 2px solid hsl(var(--p));
+  	}
+  
+  	.blob {
+		position: fixed;
+		bottom: 30px;
+		right: 50px;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+  	}
+
+  	@media screen and (max-width: 768px) {
+		.blob {
+			right: 100px;	  
+			width: 30px;
+		  	height: 30px;
+	  	}
+  	}
+</style>
+<script>
+	const blob = document.getElementById('ScrollTopBlob');
+
+	blob.addEventListener('mouseover', () => {
+		cursor.classList.add('cursor-grow');
+		blob.classList.add('link-hovered');
+
+		const textData = blob.getAttribute('data-cursor-link-text');
+		cursorText.innerHTML = textData;
+		cursorText.classList.add('cursor--text-active');
+	});
+
+	blob.addEventListener('mouseleave', () => {
+		cursor.classList.remove('cursor-grow');
+		blob.classList.remove('link-hovered');
+
+		cursorText.innerHTML = '';
+		cursorText.classList.remove('cursor--text-active');
+	});
+</script>
