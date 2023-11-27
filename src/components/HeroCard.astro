@@ -24,7 +24,7 @@ const { btn_text, title, text } = Astro.props;
 <div class="" data-aos="fade-right" data-aos-delay="600" data-aos-duration="800">
   <h1 class="text-4xl text-center">Hey 👋 I am <span class="text-primary font-bold">Josef</span></h1>
   <p class="my-2 text-center text-lg">Welcome to my Website</p>
-  <a href="#info" class="btn btn-outline btn-primary">Get to know me</a>
+  <a href="#info" class="btn btn-outline btn-primary" id="getToKnowMe">Get to know me</a>
 </div>
 
 
@@ -33,3 +33,17 @@ const { btn_text, title, text } = Astro.props;
     margin-bottom: -1.8rem;
 }
 </style>
+
+<script>
+	const btn = document.getElementById('getToKnowMe');
+
+	btn.addEventListener('mouseover', () => {
+		cursor.classList.add('cursor-grow');
+		btn.classList.add('link-hovered');
+	});
+
+	btn.addEventListener('mouseleave', () => {
+		cursor.classList.remove('cursor-grow');
+		btn.classList.remove('link-hovered');
+	});
+</script>

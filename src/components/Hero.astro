@@ -21,7 +21,7 @@ const { title, text } = Astro.props;
             </figure>
         </div>
     </div>
-    <a href="#info">
+    <a href="#info" id="downArrow">
         <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -35,9 +35,9 @@ const { title, text } = Astro.props;
                 stroke-linejoin='round'
                 d='M19.5 8.25l-7.5 7.5-7.5-7.5'
                 data-aos-once='true'
-                data-aos-delay='2000'
-                data-aos-duration='300'
-                data-aos='fade-in'></path>
+                data-aos-delay='1000'
+                data-aos-duration='600'
+                data-aos='fade-up'></path>
         </svg>
     </a>
     
@@ -206,7 +206,7 @@ const { title, text } = Astro.props;
 
     const changeSlideNumber = add => {
         slideNumber = (slideNumber + add) % bgImages.length;
-        if (slideNumber < 0) {
+        if (slideNumber <script 0) {
             slideNumber += bgImages.length;
         }
     };
@@ -243,4 +243,18 @@ const { title, text } = Astro.props;
     btns[1].addEventListener('mouseleave', () => {
         cursor.classList.remove('cursor-grow');
     });
+
+</script>
+<script>
+    // Manage Down Arrow
+    const downArrow = document.getElementById("downArrow")
+    downArrow.addEventListener('mouseover', () => {
+		cursor.classList.add('cursor-grow');
+		downArrow.classList.add('link-hovered');
+	});
+
+	downArrow.addEventListener('mouseleave', () => {
+		cursor.classList.remove('cursor-grow');
+		downArrow.classList.remove('link-hovered');
+	});
 </script>
