@@ -15,3 +15,13 @@ Einbauen einer [robots.txt](https://github.com/alextim/astro-lib/tree/main/packa
 ### Page Transitionsg
 
 - [ ] Verwenden von Page Transitions mit [barba.js](https://barba.js.org/docs/getstarted/basic-transition/) und [anime.js](https://animejs.com/)
+
+## Interessensgebiete
+- Embedded Devices
+- Bioinformatics
+- Spin Physics
+- Machine Learning
+- Evolutionary Algorithms
+- Software Engeneering
+- Theoretische Informatik und Algorithmenentwicklung
+  
